@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
   const heroRef = useRef(null);
+  const imageRef = useRef(null);
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
 
@@ -57,6 +58,17 @@ function HeroSection() {
       ease: "power3",
       scrollTrigger: {
         trigger: heroRef.current,
+        start: "top bottom",
+        toggleActions: "play none none none",
+      }
+    });
+    gsap.from(imageRef.current, {
+      x: 90,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3",
+      scrollTrigger: {
+        trigger: imageRef.current,
         start: "top bottom",
         toggleActions: "play none none none",
       }
@@ -147,7 +159,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="w-full xl:flex justify-center items-center hidden" >
+      <div ref={imageRef} className="w-full xl:flex justify-center items-center hidden" >
         <Image src='/images/HA1.svg' alt="image" width={250} height={250} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] " />
       </div>
     </div>
