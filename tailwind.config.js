@@ -20,6 +20,18 @@ module.exports = {
         'lg': { 'min': '768px', 'max': '991px' },
         'xl': { 'min': '992px' },
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
+      animation: {
+        float: 'float 3s ease-in-out infinite',
+      },
+      boxShadow: {
+        'custom-blue': '-2px 3px 16px 4px rgba(81, 128, 255, 0.25)',
+      },
     },
   },
   plugins: []

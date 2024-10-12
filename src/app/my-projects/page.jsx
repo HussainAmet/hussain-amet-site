@@ -3,9 +3,9 @@ import { PageContainer } from '@/components/utility/container/Container'
 function MyProjectsPage() {
   return (
     <PageContainer>
-      <div>MyProjectsPage</div>
+      <div>My Projects Page</div>
     </PageContainer>
   )
 }
 
-export default MyProjectsPage
+export default MyProjectsPage;

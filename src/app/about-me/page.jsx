@@ -1,11 +1,9 @@
 import { PageContainer } from '@/components/utility/container/Container'
 
-function AboutMePage() {
+export default function AboutMePage() {
   return (
     <PageContainer>
-      <div>About  Me</div>
+      <div>About Me</div>
     </PageContainer>
   )
-}
-
-export default AboutMePage
+};

@@ -1,36 +1,31 @@
 "use client";
 import React, { useRef } from "react";
-import Logo from "/public/icons/header/logo.png";
+import Logo from "/public/images/header/Logo.png";
 import Image from "next/image";
 import LinkComponent from "@/components/utility/link/Link";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import gsap from "gsap";
+import MenuDrawer from "@/components/utility/menu/MenuDrawer";
 
 function MainHeader({ navList }) {
   const url = usePathname();
   const imageRef = useRef(null);
 
-  let tween;
-
   const animate = () => {
-    tween = gsap.to(imageRef.current, {
+    gsap.to(imageRef.current, {
       rotation: 360,
       duration: 1,
       ease: "power1.in",
-      repeat: -1,
     });
   };
 
   const removeAnimation = () => {
-    if (tween) {
-      tween.kill();
-      gsap.to(imageRef.current, {
-        rotation: 0,
-        duration: 0.5,
-        ease: "power1.in",
-      });
-    }
+    gsap.to(imageRef.current, {
+      rotation: 0,
+      duration: 0.5,
+      ease: "power1.in",
+    });
   };
 
   return (
@@ -52,6 +47,7 @@ function MainHeader({ navList }) {
             alt="logo"
             width="44px"
             height="44px"
+            priority
           />
         </Link>
       </div>
@@ -89,6 +85,8 @@ function MainHeader({ navList }) {
           imageBefore={navList[3].imageBefore ? navList[3].imageBefore : ""}
           target={navList[3].target ? navList[3].target : "_self"}
         />
+        
+        <MenuDrawer navList={navList} url={url} />
       </div>
     </>
   );

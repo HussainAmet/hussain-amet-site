@@ -1,5 +1,5 @@
 "use client"
-import MainHeader from '@/components/home/header/MainHeader';
+import MainHeader from '@/components/utility/header/MainHeader';
 import socialMediaLinks from '@/json/socialMediaLinks'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

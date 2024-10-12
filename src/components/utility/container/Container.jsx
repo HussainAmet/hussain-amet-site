@@ -1,7 +1,6 @@
-
 function NavbarContainer({ children }) {
   return (
-    <div className='flex w-full xl:px-[64px] lg:px-[16px] px-[12px] items-center justify-center sticky top-0 z-50'>
+    <div className='flex w-full xl:px-[64px] lg:px-[16px] px-[12px] items-center justify-center sticky top-0 z-40'>
       <div className='w-full max-w-[1920px] mx-auto'>
         {children}
       </div>

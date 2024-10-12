@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "./animation.css";
+import Image from "next/image";
 
-function LinkComponent({ text, className, shadowColor, isActive, imageBefore, imageAfter, ...props }) {
+function LinkComponent({ text='', className='', shadowColor='', isActive, imageBefore, imageAfter, ...props }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -26,7 +27,7 @@ function LinkComponent({ text, className, shadowColor, isActive, imageBefore, im
         }}
       >
         <p>{text}</p>
-        {imageBefore && <img src={hovered && window.innerWidth >= 992 ? imageAfter : imageBefore} />}
+        {imageBefore && <Image src={hovered && window.innerWidth >= 992 ? imageAfter : imageBefore} alt={text} />}
       </Link>
     </>
   );
