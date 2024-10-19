@@ -27,7 +27,7 @@ function LinkComponent({ text='', className='', shadowColor='', isActive, imageB
         }}
       >
         <p>{text}</p>
-        {imageBefore && <Image src={hovered && window.innerWidth >= 992 ? imageAfter : imageBefore} alt={text} />}
+        {imageBefore && <Image src={hovered && window.innerWidth >= 992 ? imageAfter : imageBefore} alt={text} width={20} height={20} />}
       </Link>
     </>
   );
