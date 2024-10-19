@@ -6,9 +6,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from "next/image";
-import './style.css'
+import './style.css';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
   const heroRef = useRef(null);
