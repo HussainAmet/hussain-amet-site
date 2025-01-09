@@ -13,9 +13,7 @@ import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 function MyProjectsSection() {
-
-  // const device = Cookies.get('device')
-  // const allow = device == 'desktop' ? 4 : 2;  
+  
   const leftCard = useRef([]);
   const rightCard = useRef([]);
 
