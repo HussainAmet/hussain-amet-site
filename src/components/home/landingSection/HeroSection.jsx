@@ -102,8 +102,8 @@ function HeroSection() {
                 text-[44px]
               "
             >
-              <span className="text-[var(--light-white)]">{"<"}</span> hey y&apos;all <span className="text-[var(--accent)]">*</span>{" "}
-              i&apos;m <span className="text-[var(--accent)]">hussain amet</span>! <span className="text-[var(--light-white)]">{"/>"}</span>
+              hey y&apos;all <span className="text-[var(--accent)]">*</span>{" "}
+              i&apos;m <span className="text-[var(--accent)]">hussain amet</span>!
             </p>
           </div>
           <div className="flex gap-10 flex-col pt-6">

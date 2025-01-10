@@ -8,12 +8,10 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LearnMore from "@/components/utility/learnMore/LearnMore";
 import Link from "next/link";
-// import Cookies from "js-cookie"
 
 gsap.registerPlugin(ScrollTrigger);
 
 function MyProjectsSection() {
-  
   const leftCard = useRef([]);
   const rightCard = useRef([]);
 
