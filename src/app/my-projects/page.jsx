@@ -1,10 +1,9 @@
 import { PageContainer } from '@/components/utility/container/Container'
-import MyProjects from '@/page/MyProjects';
 
 function MyProjectsPage() {
   return (
     <PageContainer>
-      <MyProjects/>
+      <div>My Projects Page</div>
     </PageContainer>
   )
 }
