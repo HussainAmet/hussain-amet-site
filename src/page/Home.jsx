@@ -7,16 +7,16 @@ import Line from "@/components/utility/line/Line";
 import ContactMeSection from "@/components/home/contactMeSection/ContactMeSection";
 
 function Home() {
-    return (
-        <>        
-            <HeroSection />
-            <AboutMeSection />
-            <MySkillsSection />
-            <MyProjectsSection />
-            <Line direction='left' />
-            <ContactMeSection />
-        </>
-    );
+  return (
+    <>
+      <HeroSection />
+      <AboutMeSection />
+      <MySkillsSection />
+      <MyProjectsSection />
+      <Line direction="left" />
+      <ContactMeSection />
+    </>
+  );
 }
 
 export default Home;

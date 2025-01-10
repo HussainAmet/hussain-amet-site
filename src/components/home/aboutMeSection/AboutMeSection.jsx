@@ -66,12 +66,12 @@ function AboutMeSection() {
                     </span>
                     <span>
                         {renderTextWithSpans(
-                            "seeking a full-time opportunity to turn my coding passion into impactful digital solutions. As a fresher, I am ready to"
+                            "seeking a full-time opportunity to turn my coding passion into impactful digital solutions. I bring a strong ability to quickly"
                         )}
                         <span className="text-[--accent]">
-                            {renderTextWithSpans("learn, adapt, and grow")}
+                            {renderTextWithSpans("learn, adapt")}
                         </span>
-                        {renderTextWithSpans("with your team.")}
+                        {renderTextWithSpans("to new challenges, and contribute effectively to your team's success.")}
                     </span>
                 </span>
                 <LearnMore href="/about-me" />
