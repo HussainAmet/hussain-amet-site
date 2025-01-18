@@ -5,6 +5,28 @@ import socialMediaLinks from '@/json/socialMediaLinks';
 import Text from '@/components/utility/text/Text';
 
 function ContactMeSection() {
+    const contacts = [
+        {
+            label: "Let's Connect",
+            image: '/icons/common/Link_blue.svg',
+            link: socialMediaLinks.linkedIn
+        },
+        {
+            label: 'Email Me',
+            image: '/icons/common/mail.svg',
+            link: socialMediaLinks.email
+        },
+        {
+            label: 'Download CV',
+            image: '/icons/common/Download_blue.svg',
+            link: socialMediaLinks.CV
+        },
+        {
+            label: 'Github',
+            image: '/icons/common/Github.svg',
+            link: socialMediaLinks.github
+        }
+    ]
     return (
         <div className='
             border-[2px] border-[var(--light-white)] rounded-[45px] font-aptly-medium-italic
@@ -20,22 +42,12 @@ function ContactMeSection() {
                     md:flex-col md:gap-11
                     sm:flex-col sm:gap-11
                 '>
-                    <Link href={socialMediaLinks.linkedIn} className='flex gap-4' target='_blank'>
-                        <Image src='/icons/common/Link_blue.svg' alt='image' width={20} height={20} />
-                        <p>Let&apos;s Connect</p>
-                    </Link>
-                    <Link href={socialMediaLinks.email} className='flex gap-4'>
-                        <Image src='/icons/common/mail.svg' alt='image' width={25} height={20} />
-                        <p>Email Me</p>
-                    </Link>
-                    <Link href={socialMediaLinks.CV} className='flex gap-4' target='_blank' download="Hussain_Amet_CV.pdf">
-                        <Image src='/icons/common/Download_blue.svg' alt='image' width={24.44} height={20} />
-                        <p>Download CV</p>
-                    </Link>
-                    <Link href={socialMediaLinks.github} className='flex gap-4' target='_blank' >
-                        <Image src='/icons/common/Github.svg' alt='image' width={18.33} height={20} />
-                        <p>Github</p>
-                    </Link>
+                    {contacts.map(contact => (
+                        <Link key={contact.label} href={contact.link} className='flex gap-4' target='_blank'>
+                            <Image src={contact.image} alt='image' width={20} height={20} />
+                            <p>{contact.label}</p>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </div>

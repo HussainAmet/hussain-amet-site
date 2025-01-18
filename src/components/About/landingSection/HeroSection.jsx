@@ -1,7 +1,39 @@
 "use client";
-import React from 'react'
+import React, { useRef } from 'react'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
+  const nameRef = useRef(null);
+  const postRef = useRef(null);
+  useGSAP(() => {
+    gsap.from(nameRef.current, {
+      x: -90,
+      opacity: 0,
+      duration: 1,
+      ease: 'power1.in',
+      scrollTrigger: {
+        trigger: nameRef.current,
+        start: "top bottom",
+        toggleActions: "play none none none",
+      }
+    })
+
+    gsap.from(postRef.current, {
+      x: 90,
+      opacity: 0,
+      duration: 1,
+      ease: 'power1.in',
+      scrollTrigger: {
+        trigger: postRef.current,
+        start: "top bottom",
+        toggleActions: "play none none none",
+      }
+    })
+  })
   return (
     <div
       className='
@@ -12,6 +44,7 @@ function HeroSection() {
       '
     >
       <div
+        ref={nameRef}
         className='
           xl:text-right
           text-center
@@ -51,9 +84,9 @@ function HeroSection() {
           >
             <div
               className='
-                bg-green-600 rounded-full animate-pulse
-                xl:w-3 xl:h-3
-                lg:w-3 lg:h-3
+                bg-green-600 rounded-full animate-pulse-shadow
+                xl:w-2 xl:h-2
+                lg:w-2 lg:h-2
                 w-2 h-2
               '
             ></div>
@@ -91,6 +124,7 @@ function HeroSection() {
         </div>
       </center>
       <p
+        ref={postRef}
         className='
           font-aptly-regular tracking-tighter text-center
           xl:text-[3.5vw]

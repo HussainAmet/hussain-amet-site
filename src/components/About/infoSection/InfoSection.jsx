@@ -1,9 +1,46 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
 import socialMediaLinks from '@/json/socialMediaLinks';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function InfoSection() {
+    const infoRef = useRef(null);
+
+    useGSAP(() => {
+        const infoWords = gsap.utils.toArray(".infoword");
+
+        gsap.fromTo(
+            infoWords,
+            { opacity: 0.3, x: 0 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                ease: "power2.out",
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: infoRef.current,
+                    start: "top bottom",
+                    toggleActions: "play none none none",
+                },
+            }
+        );
+    });
+
+    const renderTextWithSpans = (text) => {
+        return text.split(" ").map((word, index) => (
+            <span key={index} className="infoword inline-block">
+                {word}&nbsp;
+            </span>
+        ));
+    };
+
   return (
     <div
         className='
@@ -13,6 +50,7 @@ function InfoSection() {
     >
         <div className='font-aptly-regular'>
             <p
+                ref={infoRef}
                 className='
                     text-center
                     xl:text-[55px] xl:mb-16 xl:leading-[75px]
@@ -20,7 +58,15 @@ function InfoSection() {
                     text-[27px] mb-8 leading-[38px]
                 '
             >
-                I craft <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>dynamic</span> and <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>seamless</span> digital experiences by combining <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>frontend</span> and <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>backend</span> development.
+                {renderTextWithSpans("I craft")}
+                <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>{renderTextWithSpans("dynamic")}</span>
+                {renderTextWithSpans("and")}
+                <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>{renderTextWithSpans("seamless")}</span>
+                {renderTextWithSpans("digital experiences by combining")}
+                <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>{renderTextWithSpans("frontend")}</span>
+                {renderTextWithSpans("and")}
+                <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>{renderTextWithSpans("backend")}</span>
+                {renderTextWithSpans("development")}.
             </p>
             <div
                 className='

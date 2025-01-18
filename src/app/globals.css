@@ -10,9 +10,3 @@ body {
   background-color: var(--black);
   overflow-x: hidden;
 }
-
-/* @media (min-width: 992px) {
-  * {
-    cursor: none;
-  }
-} */
