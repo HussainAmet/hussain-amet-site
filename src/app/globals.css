@@ -11,8 +11,8 @@ body {
   overflow-x: hidden;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   * {
     cursor: none;
   }
-}
+} */

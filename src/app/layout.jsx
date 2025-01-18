@@ -3,7 +3,6 @@ import { NavbarContainer } from '@/components/utility/container/Container';
 import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
 import CustomCursor from "@/components/utility/customCursor/CustomCursor";
-import Loading from "./loading";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
 
 export const metadata = {

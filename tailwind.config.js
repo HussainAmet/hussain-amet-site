@@ -16,9 +16,9 @@ module.exports = {
       },
       screens: {
         'sm': { 'max': '479px' },
-        'md': { 'min': '480px', 'max': '767px' },
-        'lg': { 'min': '768px', 'max': '991px' },
-        'xl': { 'min': '992px' },
+        'md': { 'min': '479px', 'max': '767px' },
+        'lg': { 'min': '767px', 'max': '991px' },
+        'xl': { 'min': '991px' },
       },
       keyframes: {
         float: {

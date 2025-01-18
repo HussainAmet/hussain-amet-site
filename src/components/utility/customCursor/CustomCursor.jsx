@@ -1,13 +1,21 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import './style.css'
+'use client';
+import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import './style.css';
 
 function CustomCursor() {
     const [isProjectHover, setIsProjectHover] = useState(false);
+    const pathname = usePathname();
+
     useEffect(() => {
+        setIsProjectHover(false);
+
         const cursor = document.getElementById('cursor');
         const cursorBorder = document.getElementById('cursor-border');
         const cursorText = document.getElementById('cursor-text');
+
+        if (!cursor || !cursorBorder || !cursorText) return;
+
         let cursorX = 0, cursorY = 0, borderX = 0, borderY = 0;
 
         const move = (e) => {
@@ -19,13 +27,8 @@ function CustomCursor() {
             cursorText.style.top = `${cursorY}px`;
         };
 
-        const handleLinkHover = () => {
-            cursorBorder.classList.add('hover');
-        };
-
-        const handleLinkLeave = () => {
-            cursorBorder.classList.remove('hover');
-        };
+        const handleLinkHover = () => cursorBorder.classList.add('hover');
+        const handleLinkLeave = () => cursorBorder.classList.remove('hover');
 
         const handleProjectHover = () => {
             setIsProjectHover(true);
@@ -39,14 +42,28 @@ function CustomCursor() {
             cursorText.style.display = 'none';
         };
 
-        document.addEventListener('mousemove', move);
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', handleLinkHover);
-            link.addEventListener('mouseleave', handleLinkLeave);
+        const attachHoverEvents = () => {
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('mouseenter', handleLinkHover);
+                link.addEventListener('mouseleave', handleLinkLeave);
+            });
+
+            document.querySelectorAll('.project').forEach(project => {
+                project.addEventListener('mouseenter', handleProjectHover);
+                project.addEventListener('mouseleave', handleProjectLeave);
+            });
+        };
+
+        document.body.addEventListener('mousemove', move);
+        attachHoverEvents();
+
+        const observer = new MutationObserver(() => {
+            attachHoverEvents();
         });
-        document.querySelectorAll('.project').forEach(project => {
-            project.addEventListener('mouseenter', handleProjectHover);
-            project.addEventListener('mouseleave', handleProjectLeave);
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
         });
 
         const borderAnimation = () => {
@@ -60,7 +77,8 @@ function CustomCursor() {
         requestAnimationFrame(borderAnimation);
 
         return () => {
-            document.removeEventListener('mousemove', move);
+            document.body.removeEventListener('mousemove', move);
+            observer.disconnect();
             document.querySelectorAll('a').forEach(link => {
                 link.removeEventListener('mouseenter', handleLinkHover);
                 link.removeEventListener('mouseleave', handleLinkLeave);
@@ -70,14 +88,15 @@ function CustomCursor() {
                 project.removeEventListener('mouseleave', handleProjectLeave);
             });
         };
-    }, []);
+    }, [pathname]);
+
     return (
         <>
-            <div id='cursor' className=' xl:block hidden ' ></div>
-            <div id="cursor-border" className=' xl:block hidden ' ></div>
-            <div id='cursor-text' className={`xl:block hidden ${isProjectHover ? 'visible' : 'hidden'} `}>VIEW</div>
+            <div id='cursor' className='xl:block hidden'></div>
+            <div id="cursor-border" className='xl:block hidden'></div>
+            <div id='cursor-text' className={`xl:block hidden ${isProjectHover ? 'visible' : 'hidden'}`}>VIEW</div>
         </>
-    )
+    );
 }
 
 export default CustomCursor;

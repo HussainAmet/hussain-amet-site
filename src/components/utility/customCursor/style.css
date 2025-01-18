@@ -32,10 +32,27 @@
     backdrop-filter: contrast(150%);
 }
 
+.cursor-bor {
+    backdrop-filter: blur(2px);
+}
+
 #cursor-text {
     font-family: var(--font-aptly-regular);
     font-size: 18px;
     color: var(--white);
     transform: translate(-50%, -50%);
     display: none;
+    
+}
+
+@media (min-width: 479px) and (max-width: 767px) {
+    #cursor-text {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #cursor-text {
+        display: none;
+    }
 }
