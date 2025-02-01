@@ -54,12 +54,12 @@ function MainHeader({ navList }) {
         </Link>
       </div>
       <div className="xl:flex xl:gap-4 hidden">
-        {navList.map((link) => {
+        {navList.map((link, index) => {
           return (
             <LinkComponent
               key={link.text}
               text={link.text}
-              href={"/" + link.href}
+              href={`${index === (navList.length - 1) ? "" : "/"}` + link.href}
               isActive={splitUrl == link.href}
               className={`${
                 splitUrl == link.href
