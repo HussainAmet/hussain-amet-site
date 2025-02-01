@@ -32,7 +32,7 @@ function MenuDrawer({ navList, url }) {
             <div ref={drawerRef} className='mt-6 flex flex-col py-6 bg-[var(--white)] font-aptly-medium-italic text-lg rounded-[24px]' >
               {
                 navList.map((item, index) => (
-                  <Link key={index} onClick={() => setIsClicked(!isClicked)} href={"/" + item.href} className={`flex justify-between items-center ${splitUrl == item.href ? 'bg-[var(--black)] text-[var(--white)]' : 'bg-[var(--white)] text-[var(--black)]'} pl-8 pr-4 py-8 `} >
+                  <Link key={index} onClick={() => setIsClicked(!isClicked)} href={`${index === (navList.length - 1) ? "" : "/"}` + item.href} className={`flex justify-between items-center ${splitUrl == item.href ? 'bg-[var(--black)] text-[var(--white)]' : 'bg-[var(--white)] text-[var(--black)]'} pl-8 pr-4 py-8 `} >
                     <div>
                       {item.text}
                     </div>
