@@ -84,7 +84,7 @@ function HeroSection() {
           >
             <div
               className='
-                bg-green-600 rounded-full animate-pulse-shadow
+                bg-green-600 rounded-sm rotate-45 animate-pulse-shadow
                 xl:w-2 xl:h-2
                 lg:w-2 lg:h-2
                 w-2 h-2

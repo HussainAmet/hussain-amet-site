@@ -1,6 +1,6 @@
 "use client"
 import MainHeader from '@/components/utility/header/MainHeader';
-import socialMediaLinks from '@/json/socialMediaLinks'
+import siteData from '@/json/siteData'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -28,19 +28,19 @@ function Header() {
     const navList = [
         {
             text: "Home",
-            href: '/',
+            href: '',
         },
         {
             text: "About Me",
-            href: '/about-me',
+            href: 'about-me',
         },
         {
             text: "My Projects",
-            href: '/my-projects',
+            href: 'my-projects',
         },
         {
             text: "LinkedIn",
-            href: socialMediaLinks.linkedIn,
+            href: siteData.socialLinks.linkedIn,
             imageBefore: '/icons/common/Link_white.svg',
             imageAfter: '/icons/common/Link_black.svg',
             target: "_blank",

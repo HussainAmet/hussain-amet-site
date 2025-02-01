@@ -44,15 +44,3 @@
     display: none;
     
 }
-
-@media (min-width: 479px) and (max-width: 767px) {
-    #cursor-text {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    #cursor-text {
-        display: none;
-    }
-}

@@ -14,7 +14,7 @@ function LinkComponent({ text='', className='', shadowColor='', isActive, imageB
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={`
-          ${className}
+          ${className} linkHover
           flex gap-4 items-center border-[2px] rounded-[8px] font-aptly-medium-italic
           xl:text-[22px] xl:py-[15px] xl:px-[24px] xl:w-fit
           lg:text-[20px] lg:w-fits
@@ -26,7 +26,7 @@ function LinkComponent({ text='', className='', shadowColor='', isActive, imageB
           boxShadow: !isActive && hovered && window.innerWidth >= 992 ? `4px 5px 8px -2px ${shadowColor}` : "none",
         }}
       >
-        <p>{text}</p>
+        {text? <p>{text}</p>:''}
         {imageBefore && <Image src={hovered && window.innerWidth >= 992 ? imageAfter : imageBefore} alt={text} width={20} height={20} />}
       </Link>
     </>

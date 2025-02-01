@@ -12,8 +12,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="leading-none text-[var(--white)]">
+    <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
+      <body className="leading-none text-[var(--white)] no-scrollbar">
         <LoaderProvider>
           <CustomCursor />
           <NavbarContainer>

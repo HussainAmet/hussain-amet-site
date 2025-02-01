@@ -1,7 +1,7 @@
 "use client";
 import LinkComponent from "@/components/utility/link/Link";
 import React, { useRef } from "react";
-import socialMediaLinks from "@/json/socialMediaLinks.json";
+import siteData from "@/json/siteData.json";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -139,7 +139,7 @@ function HeroSection() {
             >
               <LinkComponent
                 text="Let's Connect"
-                href={socialMediaLinks.linkedIn}
+                href={siteData.socialLinks.linkedIn}
                 isActive={false}
                 className={`bg-[var(--accent)] text-[var(--white)] xl:after:bg-[var(--accent)] xl:hover:text-[var(--white)] border-[var(--accent)]`}
                 shadowColor='var(--accent)'
@@ -149,7 +149,7 @@ function HeroSection() {
               />
               <LinkComponent
                 text="Download CV"
-                href={socialMediaLinks.CV}
+                href={siteData.socialLinks.CV}
                 download="Hussain_Amet_CV.pdf"
                 isActive={false}
                 className={`bg-[var(--black)] text-[var(--accent)] xl:after:bg-[var(--accent)] xl:hover:text-[var(--white)] border-[var(--accent)]`}

@@ -1,0 +1,507 @@
+{
+    "socialLinks": {
+        "linkedIn": "https://www.linkedin.com/in/hussain-amet-971183258/",
+        "CV": "https://drive.google.com/uc?export=download&id=15MDRnNavRl9DGxRyBZ26URfVgeSTLiDK",
+        "email": "mailto:hussainamet@gmail.com",
+        "github": "https://github.com/HussainAmet"
+    },
+
+    "skills": [
+        {
+            "title": "Front End Technologies",
+            "skills": [
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "Bootstrap",
+              "Tailwind CSS",
+              "React.js",
+              "Next.js",
+              "Redux",
+              "EJS Template",
+              "GSAP",
+              "Figma"
+            ]
+          },
+          {
+            "title": "Back End Technologies",
+            "skills": ["Node.js", "Express.js", "MongoDB", "MySQL"]
+          }
+    ],
+
+    "contacts": [
+        {
+            "label": "Let's Connect",
+            "image": "/icons/common/Link_blue.svg",
+            "link": "https://www.linkedin.com/in/hussain-amet-971183258/"
+        },
+        {
+            "label": "Email Me",
+            "image": "/icons/common/mail.svg",
+            "link": "mailto:hussainamet@gmail.com"
+        },
+        {
+            "label": "Download CV",
+            "image": "/icons/common/Download_blue.svg",
+            "link": "https://drive.google.com/uc?export=download&id=15MDRnNavRl9DGxRyBZ26URfVgeSTLiDK"
+        },
+        {
+            "label": "Github",
+            "image": "/icons/common/Github.svg",
+            "link": "https://github.com/HussainAmet"
+        }
+    ],
+
+    "educations": [
+        {
+            "institution": "Geetanjali Institute of Technical Studies",
+            "degree": "B.Tech. in CSE",
+            "graduationYear": "2022 - 2026"
+        },
+        {
+            "institution": "Central Academy Ambamata Sr. Sec. School",
+            "degree": "Class XII",
+            "graduationYear": "2022"
+        },
+        {
+            "institution": "Central Academy Ambamata Sr. Sec. School",
+            "degree": "Class X",
+            "graduationYear": "2020"
+        }
+    ],
+
+    "projects": {
+        "funds-website": {
+            "title": "Funds Website",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, JavaScript, Bootstrap, MongoDB, Express.js, React.js, Node.js, Redux",
+            "href": "/my-projects/funds-website",
+            "siteLink": "https://association-funds.vercel.app/",
+            "codeLink": "https://github.com/HussainAmet/Funds-App.git",
+            "tagLine": "Simplifying Group Finance Management",
+            "overview": "Association Funds is a dynamic and user-friendly web application built using the MERN stack, designed to streamline the financial management of groups or associations. It facilitates efficient tracking of group balances, individual savings, loan management, and membership records, catering to various user roles with specific permissions. The platform is built with a focus on speed, simplicity, and security, ensuring seamless financial administration for groups of any size",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "listTitle": "Role-Based Access Control",
+                        "list": [
+                            {
+                                "title": "Super Admin : ",
+                                "description": "Complete control with the ability to create, read, update, and delete records for all members."
+                            },
+                            {
+                                "title": "Admin : ",
+                                "description": "Can create, read, and update records but lacks the authority to delete."
+                            },
+                            {
+                                "title": "Member : ",
+                                "description": "Can view their own details, including savings, loan information, and group balance."
+                            }
+                        ]
+                    },
+                    {
+                        "listTitle": "Financial Management",
+                        "list": [
+                            {
+                                "title": "",
+                                "description": "Track monthly savings of each member and the total group balance."
+                            },
+                            {
+                                "title": "",
+                                "description": "Process loan requests from members and update loan details in real-time."
+                            },
+                            {
+                                "title": "",
+                                "description": "Manage loan installments and maintain a clear repayment record."
+                            }
+                        ]
+                    },
+                    {
+                        "listTitle": "Membership Management",
+                        "list": [
+                            {
+                                "title": "",
+                                "description": "Add new members easily."
+                            },
+                            {
+                                "title": "",
+                                "description": "Handle member exits efficiently by deleting their records (Super Admin only)."
+                            }
+                        ]
+                    },
+                    {
+                        "listTitle": "Seamless User Authentication",
+                        "list": [
+                            {
+                                "title": "",
+                                "description": "Secure login using mobile numbers."
+                            }
+                        ]
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "ReactJS, HTML, CSS, and Bootstrap for an intuitive and responsive UI."
+                    },
+                    {
+                        "title": "Backend: ",
+                        "description": "Node.js and Express.js for fast and secure API handling."
+                    },
+                    {
+                        "title": "Database: ",
+                        "description": "MongoDB for robust and scalable data storage."
+                    },
+                    {
+                        "title": "State Management: ",
+                        "description": "Redux for efficient application state handling."
+                    }
+                ],
+                "How It Works": [
+                    {
+                        "title": "Savings Tracking: ",
+                        "description": "Each member contributes a fixed savings amount every month, updated by the admin on the platform."
+                    },
+                    {
+                        "title": "Loan Management: ",
+                        "description": "Members can request loans, and admins handle approvals while maintaining a transparent loan record, including installments."
+                    },
+                    {
+                        "title": "Data Accessibility: ",
+                        "description": "Members can view their own financial details, while admins and super admins have broader visibility and management capabilities."
+                    },
+                    {
+                        "title": "Group Insights: ",
+                        "description": "The platform provides a clear view of the total group savings, ensuring transparency for all members."
+                    }
+                ],
+                "Why Choose Association Funds?": [
+                    {
+                        "title": "Effortless Financial Oversight: ",
+                        "description": "Simplifies the management of group finances, eliminating manual errors."
+                    },
+                    {
+                        "title": "User-Friendly Interface: ",
+                        "description": "Designed for users with minimal technical knowledge to navigate easily."
+                    },
+                    {
+                        "title": "Secure and Scalable: ",
+                        "description": "Built on a robust technology stack to ensure data security and future scalability."
+                    },
+                    {
+                        "title": "Quick Response Time: ",
+                        "description": "Optimized backend for lightning-fast performance."
+                    },
+                    {
+                        "title": "Customizable Roles: ",
+                        "description": "Assign appropriate permissions to users, ensuring accountability and proper access."
+                    }
+                ],
+                "Use Cases": [
+                    {
+                        "title": "",
+                        "description": "Community savings groups"
+                    },
+                    {
+                        "title": "",
+                        "description": "Office contribution pools"
+                    },
+                    {
+                        "title": "",
+                        "description": "Small associations managing collective funds"
+                    },
+                    {
+                        "title": "",
+                        "description": "Family or friends' group savings initiatives"
+                    }
+                ],
+                "Get Your Own Customized Version": [
+                    {
+                        "title": "",
+                        "description": "Association Funds is not just a standalone solution—it’s an opportunity to have a personalized financial management platform tailored to your group’s unique needs. The website is available for sale, and buyers can request customized features and preferences to match their specific requirements. Transform the way your group manages finances with a tailored solution just for you!"
+                    }
+                ]
+            }
+        },
+
+        "portfolio-website": {
+            "title": "My Portfolio",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, JavaScript, Next.js, TailwindCSS, GSAP",
+            "href": "/my-projects/portfolio-website",
+            "codeLink": "https://github.com/HussainAmet/hussain-amet-site.git",
+            "tagLine": "A Professional & Interactive Showcase",
+            "overview": "My Portfolio Website is a well-crafted and fully responsive personal portfolio designed to showcase my skills, experience, and projects in an engaging way. Built with modern technologies, it dynamically renders content from a JSON file, ensuring easy updates and flexibility. The site features smooth animations, a clean UI, and an intuitive layout to provide visitors with a seamless browsing experience.",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/site-image.png",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "title": "Dynamic Content Rendering: ",
+                        "description": "All information (education, skills, projects, etc.) is fetched from a JSON file, making updates effortless."
+                    },
+                    {
+                        "title": "Smooth Animations: ",
+                        "description": "Powered by GSAP, enhancing the user experience with elegant transitions and effects."
+                    },
+                    {
+                        "title": "Fully Responsive Design: ",
+                        "description": "Built with TailwindCSS, ensuring a seamless experience across all devices."
+                    },
+                    {
+                        "title": "Comprehensive Information: ",
+                        "description": "Includes sections for About Me, Skills, Education, Projects, Work Availability, and Social Links."
+                    },
+                    {
+                        "title": "Modern & Fast: ",
+                        "description": "Developed using Next.js for optimized performance and efficient rendering."
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "Next.js, HTML, CSS, JavaScript, and TailwindCSS for a modern and responsive UI."
+                    },
+                    {
+                        "title": "Animations: ",
+                        "description": "GSAP for smooth and visually appealing effects."
+                    },
+                    {
+                        "title": "Data Handling: ",
+                        "description": "JSON file for dynamic content updates."
+                    }
+                ]
+            }
+        },
+
+        "blog-website": {
+            "title": "Blog Website",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, JavaScript, TailwindCSS, React.js, Redux, Appwrite (BAAS)",
+            "href": "/my-projects/blog-website",
+            "siteLink": "https://mega-blog-web.vercel.app/",
+            "codeLink": "https://github.com/HussainAmet/MegaBlogWeb.git",
+            "tagLine": "Share, Explore, and Create",
+            "overview": "The Blog Website is a sleek and interactive platform for sharing ideas, exploring posts, and creating well-formatted blogs. With a focus on simplicity and functionality, it allows users to seamlessly connect and share content with a global audience",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "title": "User Authentication: ",
+                        "description": "Signup and login using email and password for secure access."
+                    },
+                    {
+                        "title": "Content Creation: ",
+                        "description": "Create rich, formatted posts with the integrated TinyMCE text editor, including the option to insert images for engaging content."
+                    },
+                    {
+                        "title": "Community Interaction: ",
+                        "description": "Browse, read, and explore posts shared by other users."
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "React, HTML, CSS, TailwindCSS, and JavaScript for a responsive and visually appealing interface."
+                    },
+                    {
+                        "title": "Backend: ",
+                        "description": "Powered by Appwrite Services for secure and efficient backend-as-a-service (BaaS) integration."
+                    }
+                ]
+            }
+        },
+
+        "todo-website": {
+            "title": "Tos Dos Website",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, JavaScript, Express.js, MongoDB",
+            "href": "/my-projects/todo-website",
+            "siteLink": "https://tos-dos-website.vercel.app/",
+            "codeLink": "https://github.com/HussainAmet/TosDos-Website.git",
+            "tagLine": "Organize Your Life with Ease",
+            "overview": "The To-Do Website is a simple yet powerful task management platform designed to help users stay organized and productive. With an intuitive interface and seamless functionality, it enables users to create, update, and track their daily tasks efficiently.",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "title": "Task Management: ",
+                        "description": "Add, update, and delete tasks effortlessly to keep your to-do list up to date."
+                    },
+                    {
+                        "title": "Progress Tracking: ",
+                        "description": "Mark tasks as completed and monitor your productivity."
+                    },
+                    {
+                        "title": "User-Friendly Interface: ",
+                        "description": "Clean design built with Bootstrap for a responsive and easy-to-navigate experience."
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "React, HTML, CSS, Bootstrap, and JavaScript for a dynamic and interactive user interface."
+                    },
+                    {
+                        "title": "Backend: ",
+                        "description": "Node.js and Express.js for robust API handling."
+                    },
+                    {
+                        "title": "Database: ",
+                        "description": "MongoDB for secure and scalable task storage."
+                    }
+                ]
+            }
+        },
+
+        "simon-game": {
+            "title": "Simon Game",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, Bootstrap, JavaScript, jQuery",
+            "href": "/my-projects/simon-game",
+            "siteLink": "hussainamet.github.io/Simon-Game/",
+            "codeLink": "https://github.com/HussainAmet/Simon-Game.git",
+            "tagLine": "Test Your Memory and Reflexes",
+            "overview": "The Simon Game is a fun and challenging memory game designed to test your recall and focus. With an engaging interface, the game provides real-time tracking of your progress, showing the current stage and highest score simultaneously on the screen as you play",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "title": "Real-Time Stage Display: ",
+                        "description": "Always know your current stage as you progress."
+                    },
+                    {
+                        "title": "High Score Tracker: ",
+                        "description": "Your highest score is displayed live, motivating you to beat your personal best."
+                    },
+                    {
+                        "title": "Interactive Gameplay: ",
+                        "description": "Smooth, colorful animations and responsive controls for an enjoyable experience."
+                    },
+                    {
+                        "title": "Dynamic Interface: ",
+                        "description": "Built with jQuery, ensuring smooth interactivity and animations."
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "HTML, CSS, Bootstrap, JavaScript, and jQuery for a visually appealing and interactive interface."
+                    }
+                ],
+                "How to Play": [
+                    {
+                        "title": "",
+                        "description": "Start the game, and the screen will display a sequence of colors that light up one by one"
+                    },
+                    {
+                        "title": "",
+                        "description": "Memorize the sequence and repeat it by clicking the corresponding colored buttons."
+                    },
+                    {
+                        "title": "",
+                        "description": "As you progress, the sequences grow longer and more challenging."
+                    },
+                    {
+                        "title": "",
+                        "description": "The current stage and highest score are displayed in real-time at the top of the screen, keeping you updated throughout the game."
+                    },
+                    {
+                        "title": "",
+                        "description": "The game ends when you make a mistake, and you can restart to try again."
+                    }
+                ]
+            }
+        },
+        
+        "dice-game": {
+            "title": "Dice Game",
+            "image": "/images/card1.jpg",
+            "skill": "HTML, CSS, Bootstrap, JavaScript, jQuery",
+            "href": "/my-projects/dice-game",
+            "siteLink": "hussainamet.github.io/Dice-Game/",
+            "codeLink": "https://github.com/HussainAmet/Dice-Game.git",
+            "tagLine": "A Fun Two-Player Challenge",
+            "overview": "The Dice Game is a simple, browser-based two-player game where players compete by rolling dice to achieve the highest score. With vibrant visuals and smooth animations, it’s a quick and enjoyable way to challenge friends and have fun.",
+            "quickLinks": {
+                "UI Snapshots": [
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg",
+                    "/images/card1.jpg"
+                ],
+                "Key Features": [
+                    {
+                        "title": "Two-Player Gameplay: ",
+                        "description": "Designed for friendly competition between two players."
+                    },
+                    {
+                        "title": "Dual Dice Rolls: ",
+                        "description": "Each player rolls two dice simultaneously for added excitement."
+                    },
+                    {
+                        "title": "Randomized Outcomes: ",
+                        "description": ": Uses JavaScript to generate random numbers for fair results."
+                    },
+                    {
+                        "title": "Winner Announcement: ",
+                        "description": " Instantly determines and displays the winner after each roll."
+                    }
+                ],
+                "Tech Stack": [
+                    {
+                        "title": "Frontend: ",
+                        "description": "HTML, CSS, Bootstrap, JavaScript, and jQuery for a responsive and interactive interface."
+                    }
+                ],
+                "How to Play": [
+                    {
+                        "title": "",
+                        "description": "Both players get ready to roll their dice."
+                    },
+                    {
+                        "title": "",
+                        "description": "Click the Roll Dice button to roll two dice for each player."
+                    },
+                    {
+                        "title": "",
+                        "description": "The dice will display random numbers between 1 and 6."
+                    },
+                    {
+                        "title": "",
+                        "description": "The player with the higher combined score wins the round. If both scores are equal, it’s a draw!"
+                    },
+                    {
+                        "title": "",
+                        "description": "Roll again for endless fun and competition."
+                    }
+                ]
+            }
+        }
+    }
+}

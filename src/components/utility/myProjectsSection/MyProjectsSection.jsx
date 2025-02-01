@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import Heading from "@/components/utility/heading/Heading";
 import Image from "next/image";
 import React, { useRef } from "react";
-import Card from "/public/images/card1.jpg";
+import siteData from "@/json/siteData.json";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,16 +11,20 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MyProjectsSection() {
+function MyProjectsSection({allowed = true, renderList = 2}) {
   const leftCard = useRef([]);
   const rightCard = useRef([]);
-
+  
   useGSAP(() => {
     const mm = gsap.matchMedia();
+    
 
     mm.add("(min-width: 992px)", () => {
-      projectCards.forEach((_, index) => {
-        const card = index % 2 === 0 ? leftCard.current[index / 2] : rightCard.current[Math.floor(index / 2)];
+      Object.keys(siteData.projects).forEach((_, index) => {
+        const card =
+          index % 2 === 0
+            ? leftCard.current[index / 2]
+            : rightCard.current[Math.floor(index / 2)];
         gsap.from(card, {
           x: index % 2 === 0 ? -90 : 90,
           opacity: 0,
@@ -36,8 +40,11 @@ function MyProjectsSection() {
     });
 
     mm.add("(max-width: 991px)", () => {
-      projectCards.forEach((_, index) => {
-        const card = index % 2 === 0 ? leftCard.current[index / 2] : rightCard.current[Math.floor(index / 2)];
+      Object.keys(siteData.projects).forEach((_, index) => {
+        const card =
+          index % 2 === 0
+            ? leftCard.current[index / 2]
+            : rightCard.current[Math.floor(index / 2)];
         gsap.from(card, {
           x: -90,
           opacity: 0,
@@ -54,32 +61,6 @@ function MyProjectsSection() {
 
     return () => mm.revert();
   });
-  const projectCards = [
-    {
-      image: Card,
-      title: 'Funds App',
-      tech: 'HTML5, CSS3, JavaScript',
-      href: '/'
-    },
-    {
-      image: Card,
-      title: 'Funds App',
-      tech: 'HTML5, CSS3, JavaScript',
-      href: '/'
-    },
-    {
-      image: Card,
-      title: 'Funds App',
-      tech: 'HTML5, CSS3, JavaScript',
-      href: '/'
-    },
-    {
-      image: Card,
-      title: 'Funds App',
-      tech: 'HTML5, CSS3, JavaScript',
-      href: '/'
-    },
-  ]
 
   const getCardRef = (index) => {
     return index % 2 === 0
@@ -88,27 +69,32 @@ function MyProjectsSection() {
   };
   return (
     <div>
-      <Heading text="My Projects" />
-      <div className="">
-        <div
-          className="
-          grid
-          xl:mt-10 xl:grid-cols-2 xl:grid-row-2 xl:gap-x-16 xl:gap-y-20
-          mt-8 gap-16 grid-cols-1
-        "
-        >
-          {projectCards.map((card, index) => (
-            <Link href={card.href} ref={getCardRef(index)} key={index} className={`project ${index === 2 || index === 3 ? 'lg:hidden md:hidden sm:hidden' : ''} `}>
+      {allowed && <Heading text="My Projects" />}
+      <div
+        className={`
+        grid
+        ${allowed ? 'xl:mt-10 mt-8' : ''} xl:grid-cols-2 xl:grid-row-2 xl:gap-x-16 xl:gap-y-20
+        gap-16 grid-cols-1
+      `}
+      >
+        {Object.keys(siteData.projects).map((card, index) => (
+          index < renderList ?
+            <Link
+              href={siteData.projects[card]?.href}
+              ref={getCardRef(index)}
+              key={index}
+              className="project linkHover"
+            >
               <Image
-                src={card?.image}
+                src={siteData.projects[card]?.image}
                 alt="image"
                 className="
                   border-[2px] border-[var(--light-white)] rounded-xl w-full h-auto
                   xl:mb-6
                   mb-5
                 "
-                width='auto'
-                height='auto'
+                width={600}
+                height={600}
               />
               <div>
                 <p
@@ -119,7 +105,7 @@ function MyProjectsSection() {
                     text-2xl
                   "
                 >
-                  {card?.title}
+                  {siteData.projects[card]?.title}
                 </p>
                 <p
                   className="
@@ -129,16 +115,18 @@ function MyProjectsSection() {
                     text-sm
                   "
                 >
-                  {card?.tech}
+                  {siteData.projects[card]?.skill}
                 </p>
               </div>
             </Link>
-          ))}
-        </div>
+          : null
+        ))}
+      </div>
+      {allowed && 
         <div className="mt-11 text-center">
           <LearnMore text="View More" href="/my-projects" />
         </div>
-      </div>
+      }
     </div>
   );
 }

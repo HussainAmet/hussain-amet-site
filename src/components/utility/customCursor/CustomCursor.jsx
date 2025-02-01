@@ -42,8 +42,16 @@ function CustomCursor() {
             cursorText.style.display = 'none';
         };
 
+        const handleProjectClick = () => {
+            setIsProjectHover(false);
+            cursor.style.display = 'block';
+            cursorText.style.display = 'none';
+            
+            cursorBorder.classList.remove('hover');
+        };
+
         const attachHoverEvents = () => {
-            document.querySelectorAll('a').forEach(link => {
+            document.querySelectorAll('.linkHover').forEach(link => {
                 link.addEventListener('mouseenter', handleLinkHover);
                 link.addEventListener('mouseleave', handleLinkLeave);
             });
@@ -51,6 +59,7 @@ function CustomCursor() {
             document.querySelectorAll('.project').forEach(project => {
                 project.addEventListener('mouseenter', handleProjectHover);
                 project.addEventListener('mouseleave', handleProjectLeave);
+                project.addEventListener('click', handleProjectClick);
             });
         };
 
@@ -79,22 +88,27 @@ function CustomCursor() {
         return () => {
             document.body.removeEventListener('mousemove', move);
             observer.disconnect();
-            document.querySelectorAll('a').forEach(link => {
+            document.querySelectorAll('.linkHover').forEach(link => {
                 link.removeEventListener('mouseenter', handleLinkHover);
                 link.removeEventListener('mouseleave', handleLinkLeave);
             });
             document.querySelectorAll('.project').forEach(project => {
                 project.removeEventListener('mouseenter', handleProjectHover);
                 project.removeEventListener('mouseleave', handleProjectLeave);
+                project.removeEventListener('click', handleProjectClick);
             });
         };
     }, [pathname]);
 
     return (
         <>
-            <div id='cursor' className='xl:block hidden'></div>
-            <div id="cursor-border" className='xl:block hidden'></div>
-            <div id='cursor-text' className={`xl:block hidden ${isProjectHover ? 'visible' : 'hidden'}`}>VIEW</div>
+            {window.innerWidth > 990 ?
+                <>
+                    <div id='cursor'></div>
+                    <div id="cursor-border"></div>
+                    <div id='cursor-text' className={`${isProjectHover ? 'visible' : 'hidden'}`}>VIEW</div>
+                </>
+            : "" }
         </>
     );
 }

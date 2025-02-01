@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef } from 'react'
-import socialMediaLinks from '@/json/socialMediaLinks';
+import siteData from '@/json/siteData';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -90,7 +90,7 @@ function InfoSection() {
                 >Since diving into web development, I have pursued a professional career where I apply my skills to create innovative solutions. I am passionate about contributing as a full-time developer, eager to bring dynamic ideas to life and continue my growth in this ever-evolving field.</p>
             </div>
         </div>
-        <Link href={socialMediaLinks.CV} className='flex gap-4 self-center' target='_blank'>
+        <Link href={siteData.socialLinks.CV} className='flex gap-4 self-center linkHover' target='_blank'>
             <Image src='/icons/common/Download_blue.svg' alt='image' width={24.44} height={20} />
             <p className='text-[var(--accent)] underline underline-offset-4'>Download CV</p>
         </Link>

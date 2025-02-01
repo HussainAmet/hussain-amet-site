@@ -4,6 +4,7 @@ import React, { Fragment, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import siteData from "@/json/siteData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,28 +68,6 @@ function MySkillsSection() {
     return () => mm.revert();
   });
 
-  const skills = [
-    {
-      title: "Front End Technologies",
-      skills: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Bootstrap",
-        "Tailwind CSS",
-        "React.js",
-        "Next.js",
-        "Redux",
-        "EJS Template",
-        "Figma",
-      ],
-    },
-    {
-      title: "Back End Technologies",
-      skills: ["Node.js", "Express.js", "MongoDB", "MySQL", "PHP", "Laravel"],
-    },
-  ];
-
   return (
     <div>
       <Heading text="My Skills" />
@@ -99,7 +78,7 @@ function MySkillsSection() {
           lg:text-lg lg:flex-row lg:gap-10
           text-base flex-col gap-5 mt-8
         ">
-        {skills.map((item, index) => (
+        {siteData.skills.map((item, index) => (
           <Fragment key={index}>
             {index == 1 && (
               <div
@@ -122,7 +101,7 @@ function MySkillsSection() {
               <div className="flex gap-4 flex-wrap items-center">
                 {item?.skills.map((skill, index) => (
                   <div key={index} className="flex gap-4 items-center">
-                    <span className="h-[10px] w-[10px] bg-[var(--accent)] rounded-full"></span>
+                    <span className="h-[10px] w-[10px] bg-[var(--accent)] rounded-sm rotate-45"></span>
                     <p key={index}>{skill}</p>
                   </div>
                 ))}

@@ -10,6 +10,8 @@ import MenuDrawer from "@/components/utility/menu/MenuDrawer";
 
 function MainHeader({ navList }) {
   const url = usePathname();
+  const splitUrl = url.split("/")[1];
+
   const imageRef = useRef(null);
 
   const animate = () => {
@@ -40,7 +42,7 @@ function MainHeader({ navList }) {
             w-[44px] h-[44px]
         "
       >
-        <Link href="/">
+        <Link href="/" className="linkHover">
           <Image
             ref={imageRef}
             src={Logo}
@@ -52,23 +54,25 @@ function MainHeader({ navList }) {
         </Link>
       </div>
       <div className="xl:flex xl:gap-4 hidden">
-        {navList.map((link) => (
-          <LinkComponent
-            key={link.text}
-            text={link.text}
-            href={link.href}
-            isActive={url == `${link.href}` ? true : false}
-            className={`${
-              url == `${link.href}`
-                ? "bg-[var(--white)] text-[var(--black)]"
-                : "bg-[var(--black)] text-[var(--white)] xl:after:bg-[var(--white)] xl:hover:text-[var(--black)] "
-            } border-[var(--white)]`}
-            shadowColor="var(--white)"
-            imageAfter={link.imageAfter ? link.imageAfter : ""}
-            imageBefore={link.imageBefore ? link.imageBefore : ""}
-            target={link.target ? link.target : "_self"}
-          />
-        ))}
+        {navList.map((link) => {
+          return (
+            <LinkComponent
+              key={link.text}
+              text={link.text}
+              href={"/" + link.href}
+              isActive={splitUrl == link.href}
+              className={`${
+                splitUrl == link.href
+                  ? "bg-[var(--white)] text-[var(--black)]"
+                  : "bg-[var(--black)] text-[var(--white)] xl:after:bg-[var(--white)] xl:hover:text-[var(--black)]"
+              } border-[var(--white)]`}
+              shadowColor="var(--white)"
+              imageAfter={link.imageAfter || ""}
+              imageBefore={link.imageBefore || ""}
+              target={link.target || "_self"}
+            />
+          );
+        })}
       </div>
       <div className="flex gap-4 xl:hidden">
         <LinkComponent
@@ -85,7 +89,7 @@ function MainHeader({ navList }) {
           imageBefore={navList[3].imageBefore ? navList[3].imageBefore : ""}
           target={navList[3].target ? navList[3].target : "_self"}
         />
-        
+
         <MenuDrawer navList={navList} url={url} />
       </div>
     </>
