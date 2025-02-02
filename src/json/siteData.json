@@ -9,19 +9,7 @@
     "skills": [
         {
             "title": "Front End Technologies",
-            "skills": [
-              "HTML5",
-              "CSS3",
-              "JavaScript",
-              "Bootstrap",
-              "Tailwind CSS",
-              "React.js",
-              "Next.js",
-              "Redux",
-              "EJS Template",
-              "GSAP",
-              "Figma"
-            ]
+            "skills": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Tailwind CSS", "React.js", "Next.js", "Redux", "EJS Template", "GSAP", "Figma"]
           },
           {
             "title": "Back End Technologies",
@@ -73,7 +61,7 @@
     "projects": {
         "funds-website": {
             "title": "Funds Website",
-            "image": "/images/card1.jpg",
+            "image": "/images/funds_snapshots/mockup.jpg",
             "skill": "HTML, CSS, JavaScript, Bootstrap, MongoDB, Express.js, React.js, Node.js, Redux",
             "href": "/my-projects/funds-website",
             "siteLink": "https://association-funds.vercel.app/",
@@ -82,10 +70,10 @@
             "overview": "Association Funds is a dynamic and user-friendly web application built using the MERN stack, designed to streamline the financial management of groups or associations. It facilitates efficient tracking of group balances, individual savings, loan management, and membership records, catering to various user roles with specific permissions. The platform is built with a focus on speed, simplicity, and security, ensuring seamless financial administration for groups of any size",
             "quickLinks": {
                 "UI Snapshots": [
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
+                    "/images/funds_snapshots/funds_image_1.jpg",
+                    "/images/funds_snapshots/funds_image_2.jpg",
+                    "/images/funds_snapshots/funds_image_3.jpg",
+                    "/images/funds_snapshots/funds_image_4.jpg"
                 ],
                 "Key Features": [
                     {
@@ -232,19 +220,13 @@
 
         "portfolio-website": {
             "title": "My Portfolio",
-            "image": "/images/card1.jpg",
+            "image": "/images/porfolio_snapshots/portfolio_image.jpg",
             "skill": "HTML, CSS, JavaScript, Next.js, TailwindCSS, GSAP",
             "href": "/my-projects/portfolio-website",
             "codeLink": "https://github.com/HussainAmet/hussain-amet-site.git",
             "tagLine": "A Professional & Interactive Showcase",
             "overview": "My Portfolio Website is a well-crafted and fully responsive personal portfolio designed to showcase my skills, experience, and projects in an engaging way. Built with modern technologies, it dynamically renders content from a JSON file, ensuring easy updates and flexibility. The site features smooth animations, a clean UI, and an intuitive layout to provide visitors with a seamless browsing experience.",
             "quickLinks": {
-                "UI Snapshots": [
-                    "/images/site-image.png",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
-                ],
                 "Key Features": [
                     {
                         "title": "Dynamic Content Rendering: ",
@@ -286,7 +268,7 @@
 
         "blog-website": {
             "title": "Blog Website",
-            "image": "/images/card1.jpg",
+            "image": "/images/blog_sanpshots/blog_image_1.jpg",
             "skill": "HTML, CSS, JavaScript, TailwindCSS, React.js, Redux, Appwrite (BAAS)",
             "href": "/my-projects/blog-website",
             "siteLink": "https://mega-blog-web.vercel.app/",
@@ -295,10 +277,8 @@
             "overview": "The Blog Website is a sleek and interactive platform for sharing ideas, exploring posts, and creating well-formatted blogs. With a focus on simplicity and functionality, it allows users to seamlessly connect and share content with a global audience",
             "quickLinks": {
                 "UI Snapshots": [
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
+                    "/images/blog_sanpshots/blog_image_1.jpg",
+                    "/images/blog_sanpshots/blog_image_2.jpg"
                 ],
                 "Key Features": [
                     {
@@ -328,8 +308,8 @@
         },
 
         "todo-website": {
-            "title": "Tos Dos Website",
-            "image": "/images/card1.jpg",
+            "title": "To-Do Website",
+            "image": "/images/todo_snapshots/tos_dos_image.jpg",
             "skill": "HTML, CSS, JavaScript, Express.js, MongoDB",
             "href": "/my-projects/todo-website",
             "siteLink": "https://tos-dos-website.vercel.app/",
@@ -338,10 +318,7 @@
             "overview": "The To-Do Website is a simple yet powerful task management platform designed to help users stay organized and productive. With an intuitive interface and seamless functionality, it enables users to create, update, and track their daily tasks efficiently.",
             "quickLinks": {
                 "UI Snapshots": [
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
+                    "/images/todo_snapshots/tos_dos_image.jpg"
                 ],
                 "Key Features": [
                     {
@@ -376,7 +353,7 @@
 
         "simon-game": {
             "title": "Simon Game",
-            "image": "/images/card1.jpg",
+            "image": "/images/simon_snapshots/simon_mockup.jpg",
             "skill": "HTML, CSS, Bootstrap, JavaScript, jQuery",
             "href": "/my-projects/simon-game",
             "siteLink": "hussainamet.github.io/Simon-Game/",
@@ -385,10 +362,8 @@
             "overview": "The Simon Game is a fun and challenging memory game designed to test your recall and focus. With an engaging interface, the game provides real-time tracking of your progress, showing the current stage and highest score simultaneously on the screen as you play",
             "quickLinks": {
                 "UI Snapshots": [
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
+                    "/images/simon_snapshots/simon_game_image.jpg",
+                    "/images/simon_snapshots/simon_mockup.jpg"
                 ],
                 "Key Features": [
                     {
@@ -406,6 +381,10 @@
                     {
                         "title": "Dynamic Interface: ",
                         "description": "Built with jQuery, ensuring smooth interactivity and animations."
+                    },
+                    {
+                        "title": "Immersive Audio Feedback: ",
+                        "description": "Every color press is accompanied by a click sound, adding a tactile feel to gameplay."
                     }
                 ],
                 "Tech Stack": [
@@ -441,7 +420,7 @@
         
         "dice-game": {
             "title": "Dice Game",
-            "image": "/images/card1.jpg",
+            "image": "/images/dice_snapshots/dice_mockup.jpg",
             "skill": "HTML, CSS, Bootstrap, JavaScript, jQuery",
             "href": "/my-projects/dice-game",
             "siteLink": "hussainamet.github.io/Dice-Game/",
@@ -450,10 +429,8 @@
             "overview": "The Dice Game is a simple, browser-based two-player game where players compete by rolling dice to achieve the highest score. With vibrant visuals and smooth animations, it’s a quick and enjoyable way to challenge friends and have fun.",
             "quickLinks": {
                 "UI Snapshots": [
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg",
-                    "/images/card1.jpg"
+                    "/images/dice_snapshots/dice_game_image.jpg",
+                    "/images/dice_snapshots/dice_mockup.jpg"
                 ],
                 "Key Features": [
                     {

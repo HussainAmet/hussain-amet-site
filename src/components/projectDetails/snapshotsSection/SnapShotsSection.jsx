@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 function SnapShotsSection({ projectData }) {
-    const [snapshotsCount, setSnapshotsCount] = useState(2)
+    const [snapshotsCount, setSnapshotsCount] = useState(projectData.quickLinks["UI Snapshots"].length > 1 ? 2 : 1)
   return (
     <>
         <div
@@ -20,40 +20,45 @@ function SnapShotsSection({ projectData }) {
                     <Image
                         key={index}
                         src={snapshot}
-                        alt="image"
-                        width={900}
-                        height={900}
+                        alt="snapshot"
+                        width={1000}
+                        height={1000}
                         id={`${index === 2 ? "third-snapshot" : "" || index === 1 ? "second-snapshot" : ""}`}
                         className="
-                            border-[2px] border-[var(--light-white)] rounded-xl w-full h-auto
+                            border-[2px] border-[var(--light-white)] rounded-md w-full h-auto
                         "
                     />
                 ) : null
             )}
         </div>
-        <center>
-            <div
-                className='
-                    flex gap-2 items-center w-fit cursor-pointer linkHover
-                '
-                onClick={() => setSnapshotsCount(snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? 2 : projectData.quickLinks["UI Snapshots"].length)}
-            >
-                <Image
-                    src="/icons/common/arrow-blue.png"
-                    alt='arrow'
-                    width="30"
-                    height="30"
-                />
-                <Link
-                    href={snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "#second-snapshot" : "#third-snapshot"}
-                    className='
-                        font-Inter font-medium text-base text-[var(--accent)] underline underline-offset-4
-                    '
-                >
-                    {snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "Show Less" : "Show More"}
-                </Link>
-            </div>
-        </center>
+        {
+            projectData.quickLinks["UI Snapshots"].length > 2 ?
+                <center>
+                    <div
+                        className='
+                            flex gap-2 items-center w-fit cursor-pointer linkHover
+                        '
+                        onClick={() => setSnapshotsCount(snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? 2 : projectData.quickLinks["UI Snapshots"].length)}
+                    >
+                        <Image
+                            src="/icons/common/arrow-blue.png"
+                            alt='arrow'
+                            width="30"
+                            height="30"
+                        />
+                        <Link
+                            href={snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "#second-snapshot" : "#third-snapshot"}
+                            className='
+                                font-Inter font-medium text-base text-[var(--accent)] underline underline-offset-4
+                            '
+                        >
+                            {snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "Show Less" : "Show More"}
+                            
+                        </Link>
+                    </div>
+                </center>
+            : null
+        }
     </>
   )
 }

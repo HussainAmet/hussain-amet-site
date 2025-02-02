@@ -86,7 +86,7 @@ function HeroSection() {
             <Image src='/images/graph1.png' alt="image" width={200} height={200} className="w-[50vw]" />
           </div> */}
           <div className="absolute z-50 top-[10vw] w-full flex justify-center items-center xl:hidden" >
-            <Image src='/images/HA1.svg' alt="image" width={150} height={150} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] w-[40vw]" />
+            <Image src='/images/profile_image/HA.png' alt="image" width={150} height={150} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] w-[40vw]" />
           </div>
         </div>
         <div className="xl:px-[24px]">
@@ -166,7 +166,7 @@ function HeroSection() {
         <Image src='/images/HA1.svg' alt="image" width={250} height={250} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] " />
       </div> */}
       <div ref={imageRef} className="w-full xl:flex justify-center items-center hidden" >
-        <Image src='/images/graph1.png' alt="image" width={400} height={400} />
+        <Image src='/images/profile_image/graph1.png' alt="image" width={400} height={400} />
       </div>
     </div>
   );

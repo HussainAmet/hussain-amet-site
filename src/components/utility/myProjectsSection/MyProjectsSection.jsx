@@ -78,7 +78,50 @@ function MyProjectsSection({allowed = true, renderList = 2}) {
       `}
       >
         {Object.keys(siteData.projects).map((card, index) => (
-          index < renderList ?
+          renderList === 2 ?
+            siteData.projects[card]?.title === "Funds Website" || siteData.projects[card]?.title === "Simon Game" ?
+              <Link
+                href={siteData.projects[card]?.href}
+                ref={getCardRef(index)}
+                key={index}
+                className="project linkHover"
+              >
+                <Image
+                  src={siteData.projects[card]?.image}
+                  alt="image"
+                  className="
+                    border-[2px] border-[var(--light-white)] rounded-md w-full h-auto
+                    xl:mb-6
+                    mb-5
+                  "
+                  width={600}
+                  height={600}
+                />
+                <div>
+                  <p
+                    className="
+                      font-aptly-medium-italic mb-3
+                      xl:text-4xl
+                      md:text-3xl
+                      text-2xl
+                    "
+                  >
+                    {siteData.projects[card]?.title}
+                  </p>
+                  <p
+                    className="
+                      font-Inter font-medium italic text-[var(--accent)]
+                      xl:text-lg
+                      md:text-base
+                      text-sm
+                    "
+                  >
+                    {siteData.projects[card]?.skill}
+                  </p>
+                </div>
+              </Link>
+            : null
+          :
             <Link
               href={siteData.projects[card]?.href}
               ref={getCardRef(index)}
@@ -89,7 +132,7 @@ function MyProjectsSection({allowed = true, renderList = 2}) {
                 src={siteData.projects[card]?.image}
                 alt="image"
                 className="
-                  border-[2px] border-[var(--light-white)] rounded-xl w-full h-auto
+                  border-[2px] border-[var(--light-white)] rounded-md w-full h-auto
                   xl:mb-6
                   mb-5
                 "
@@ -119,7 +162,6 @@ function MyProjectsSection({allowed = true, renderList = 2}) {
                 </p>
               </div>
             </Link>
-          : null
         ))}
       </div>
       {allowed && 

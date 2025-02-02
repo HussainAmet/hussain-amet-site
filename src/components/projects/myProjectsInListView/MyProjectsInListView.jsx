@@ -120,7 +120,7 @@ function MyProjectsInListView() {
               alt="image"
               className={`
                 
-                border-[2px] border-[var(--light-white)] rounded-xl w-[30vw] h-auto absolute right-[0] -top-[6vw] z-30 opacity-0 scale-90
+                border-[2px] border-[var(--light-white)] rounded-md w-[30vw] h-auto absolute right-[0] -top-[6vw] z-30 opacity-0 scale-90
               `}
               width={600}
               height={600}
