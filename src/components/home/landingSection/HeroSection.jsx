@@ -17,39 +17,39 @@ function HeroSection() {
   const lastNameRef = useRef(null);
 
   useGSAP(() => {
-    const firstTextArr = "hussain".split("");
-    const firstClutter = firstTextArr.map(letter => `<span class="block first-text-span">${letter}</span>`).join('');
-    firstNameRef.current.innerHTML = firstClutter;
+    // const firstTextArr = "hussain".split("");
+    // const firstClutter = firstTextArr.map(letter => `<span class="block first-text-span">${letter}</span>`).join('');
+    // firstNameRef.current.innerHTML = firstClutter;
 
-    const lastTextArr = "amet".split("");
-    const lastClutter = lastTextArr.map(letter => `<span class="block last-text-span">${letter}</span>`).join('');
-    lastNameRef.current.innerHTML = lastClutter;
+    // const lastTextArr = "amet".split("");
+    // const lastClutter = lastTextArr.map(letter => `<span class="block last-text-span">${letter}</span>`).join('');
+    // lastNameRef.current.innerHTML = lastClutter;
 
-    gsap.from(firstNameRef.current.querySelectorAll('.first-text-span'), {
-      y: 90,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.1,
-      ease: "bounce.out",
-      scrollTrigger: {
-        trigger: firstNameRef.current,
-        start: "top bottom",
-        toggleActions: "play none none none",
-      }
-    });
+    // gsap.from(firstNameRef.current.querySelectorAll('.first-text-span'), {
+    //   y: 90,
+    //   opacity: 0,
+    //   duration: 1,
+    //   stagger: 0.1,
+    //   ease: "bounce.out",
+    //   scrollTrigger: {
+    //     trigger: firstNameRef.current,
+    //     start: "top bottom",
+    //     toggleActions: "play none none none",
+    //   }
+    // });
 
-    gsap.from(lastNameRef.current.querySelectorAll('.last-text-span'), {
-      y: 90,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.1,
-      ease: "bounce.out",
-      scrollTrigger: {
-        trigger: lastNameRef.current,
-        start: "top bottom",
-        toggleActions: "play none none none",
-      }
-    });
+    // gsap.from(lastNameRef.current.querySelectorAll('.last-text-span'), {
+    //   y: 90,
+    //   opacity: 0,
+    //   duration: 1,
+    //   stagger: 0.1,
+    //   ease: "bounce.out",
+    //   scrollTrigger: {
+    //     trigger: lastNameRef.current,
+    //     start: "top bottom",
+    //     toggleActions: "play none none none",
+    //   }
+    // });
 
     gsap.from(heroRef.current, {
       x: -90,
@@ -78,15 +78,12 @@ function HeroSection() {
     <div className="xl:flex block">
       <div ref={heroRef} className="xl:w-3/4">
         <div>
-          <div className="relative uppercase font-aptly-medium-italic text-[28vw] text-center xl:hidden mb-6">
+          {/* <div className="relative uppercase font-aptly-medium-italic text-[28vw] text-center xl:hidden mb-6">
             <div className="flex justify-center" ref={firstNameRef}></div>
             <div className="flex justify-center" ref={lastNameRef}></div>
-          </div>
-          {/* <div className="w-full flex justify-center items-center xl:hidden mb-6 " >
-            <Image src='/images/graph1.png' alt="image" width={200} height={200} className="w-[50vw]" />
           </div> */}
-          <div className="absolute z-50 top-[10vw] w-full flex justify-center items-center xl:hidden" >
-            <Image src='/images/profile_image/HA.png' alt="image" width={150} height={150} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] w-[40vw]" />
+          <div className="w-full flex justify-center items-center xl:hidden mb-6 " >
+            <Image src='/images/profile_image/homeImage.png' alt="image" width={600} height={600} className="w-[55vw] animate-float" />
           </div>
         </div>
         <div className="xl:px-[24px]">
@@ -166,7 +163,7 @@ function HeroSection() {
         <Image src='/images/HA1.svg' alt="image" width={250} height={250} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] " />
       </div> */}
       <div ref={imageRef} className="w-full xl:flex justify-center items-center hidden" >
-        <Image src='/images/profile_image/graph1.png' alt="image" width={400} height={400} />
+        <Image src='/images/profile_image/homeImage.png' alt="image" width={600} height={600} className="w-[22vw]" />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +49,7 @@ function HeroSection() {
         className='
           xl:text-right
           text-center
+          md:mb-5 sm:mb-5
         '
       >
         <p
@@ -118,9 +120,18 @@ function HeroSection() {
               xl:w-[31.75vw] xl:h-[31.75vw]
               lg:w-[31.75vw] lg:h-[31.75vw]
               w-[210px] h-[210px]
-              rounded-full
+              rounded-full relative
             '
-          ></div>
+          >
+            <Image src="/images/profile_image/faceImage.png" alt='faceImage' width={600} height={600}
+              className='
+                absolute
+                xl:w-[31.75vw] xl:h-[31.75vw] xl:top-5
+                lg:w-[31.75vw] lg:h-[31.75vw] lg:top-5
+                w-[210px] h-[210px] top-4
+              '
+            />
+          </div>
         </div>
       </center>
       <p
@@ -129,7 +140,7 @@ function HeroSection() {
           font-aptly-regular tracking-tighter text-center
           xl:text-[3.5vw]
           lg:text-[6.5vw]
-          text-5xl
+          text-5xl md:mt-5 sm:mt-5
         '
       >
         Full Stack<br/>Web Developer
