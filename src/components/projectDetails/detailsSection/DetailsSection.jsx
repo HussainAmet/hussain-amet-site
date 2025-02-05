@@ -14,6 +14,24 @@ function DetailsSection() {
   const [activeLink, setActiveLink] = useState("UI Snapshots");
 
   useEffect(() => {
+    setTimeout(() => {
+      scrollToSection();
+    }, 2000);
+
+    const scrollToSection = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          const offset = 100;
+          window.scrollTo({
+            top: element.offsetTop - offset,
+            behavior: 'smooth',
+          });
+        }
+      }
+    };
+
     const sections = document.querySelectorAll('section');
     const observerOptions = {
       root: null,
