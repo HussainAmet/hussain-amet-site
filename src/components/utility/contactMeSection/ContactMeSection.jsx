@@ -15,7 +15,7 @@ function ContactMeSection() {
             <div className='
                 flex flex-col gap-11
             '>
-                <Text text='Contact Me' className='xl:text-7xl text-4xl font-aptly-medium-italic xl:w-fit lg:w-fit md:w-fit sm:w-fit'/>
+                <Text noRef={true} text='Contact Me' className='xl:text-7xl text-4xl font-aptly-medium-italic xl:w-fit lg:w-fit md:w-fit sm:w-fit'/>
                 <div className='
                     flex justify-between text-xl text-[var(--accent)]
                     md:flex-col md:gap-11
