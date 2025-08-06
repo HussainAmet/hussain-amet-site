@@ -13,6 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
+      <meta
+        name="google-site-verification"
+        content="dOTMamZFyXCHILsW_4b_liGAGGEVNWcTFDbKQLxxI6M"
+      />
+      <link rel="icon" href="/images/header/LogoFav.ico" type="image/x-icon" />
       <body className="leading-none text-[var(--white)] no-scrollbar">
         <LoaderProvider>
           <CustomCursor />
