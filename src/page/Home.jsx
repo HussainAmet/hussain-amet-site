@@ -5,7 +5,6 @@ import MySkillsSection from "@/components/utility/mySkillsSection/MySkillsSectio
 import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjectsSection";
 import Line from "@/components/utility/line/Line";
 import ContactMeSection from "@/components/utility/contactMeSection/ContactMeSection";
-import MyExperienceSection from "@/components/utility/myExperienceSection/MyExperienceSection";
 
 function Home() {
     return (
@@ -13,7 +12,6 @@ function Home() {
             <HeroSection />
             <AboutMeSection />
             <MySkillsSection />
-            <MyExperienceSection />
             <MyProjectsSection />
             <Line direction='left' />
             <ContactMeSection />
