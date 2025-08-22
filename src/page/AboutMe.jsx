@@ -5,8 +5,8 @@ import Line from "@/components/utility/line/Line";
 import ContactMeSection from "@/components/utility/contactMeSection/ContactMeSection";
 import React from 'react'
 import MyEduationSection from '@/components/About/myEducationSection/MyEduationSection';
-import { NavbarContainer, PageContainer } from '@/components/utility/container/Container';
 import InfoSection from '@/components/About/infoSection/InfoSection';
+import MyExperienceSection from '@/components/utility/myExperienceSection/MyExperienceSection';
 
 function AboutMe() {
   return (
@@ -14,8 +14,9 @@ function AboutMe() {
       <HeroSection />
       <InfoSection />
       <MySkillsSection />
-      <MyEduationSection />
+      <MyExperienceSection />
       <MyProjectsSection />
+      <MyEduationSection />
       <Line direction='left' />
       <ContactMeSection />
     </>

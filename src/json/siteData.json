@@ -5,18 +5,45 @@
         "email": "mailto:hussainamet@gmail.com",
         "github": "https://github.com/HussainAmet"
     },
-
     "skills": [
         {
             "title": "Front End Technologies",
-            "skills": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Tailwind CSS", "React.js", "Next.js", "Redux", "EJS Template", "GSAP", "Figma"]
-          },
-          {
+            "skills": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Bootstrap",
+                "Tailwind CSS",
+                "React.js",
+                "Next.js",
+                "Redux",
+                "EJS Template",
+                "GSAP",
+                "Figma"
+            ]
+        },
+        {
             "title": "Back End Technologies",
-            "skills": ["Node.js", "Express.js", "MongoDB", "MySQL"]
-          }
+            "skills": [
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "MySQL"
+            ]
+        }
     ],
-
+    "experiences": [
+        {
+            "company": "Cognus Technology",
+            "role": "Intern Web Developer",
+            "duration": "Jun ‘25 - Present",
+            "responsibilities": [
+                "Contributing to a real-world web application, 'Gradding: Study Abroad Made Simple', as part of a 15+ member development team.",
+                "Responsible for fixing bugs and implementing new features using Next.js for frontend development and NestJS (Node.js framework backend services.",
+                "Actively learning and applying full-stack best practices, including RESTful API design, modular backend architecture, and server-side rendering with Next.js, to deliver scalable and maintainable solutions."
+            ]
+        }
+    ],
     "contacts": [
         {
             "label": "Let's Connect",
@@ -39,7 +66,6 @@
             "link": "https://github.com/HussainAmet"
         }
     ],
-
     "educations": [
         {
             "institution": "Geetanjali Institute of Technical Studies",
@@ -57,7 +83,6 @@
             "graduationYear": "2020"
         }
     ],
-
     "projects": {
         "funds-website": {
             "title": "Funds Website",
@@ -217,7 +242,6 @@
                 ]
             }
         },
-
         "portfolio-website": {
             "title": "My Portfolio",
             "image": "/images/porfolio_snapshots/portfolio_image.jpg",
@@ -265,7 +289,6 @@
                 ]
             }
         },
-
         "blog-website": {
             "title": "Blog Website",
             "image": "/images/blog_sanpshots/blog_image_1.jpg",
@@ -306,7 +329,6 @@
                 ]
             }
         },
-
         "todo-website": {
             "title": "To-Do Website",
             "image": "/images/todo_snapshots/tos_dos_image.jpg",
@@ -350,7 +372,6 @@
                 ]
             }
         },
-
         "simon-game": {
             "title": "Simon Game",
             "image": "/images/simon_snapshots/simon_mockup.jpg",
@@ -417,7 +438,6 @@
                 ]
             }
         },
-        
         "dice-game": {
             "title": "Dice Game",
             "image": "/images/dice_snapshots/dice_mockup.jpg",
