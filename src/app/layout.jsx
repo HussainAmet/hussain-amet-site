@@ -4,11 +4,39 @@ import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
 import CustomCursor from "@/components/utility/customCursor/CustomCursor";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
+import siteData from '@/data/siteData.json';
 
-export const metadata = {
-  title: "Hussain Amet Portfolio",
-  description: "Hussain Amet Web Developer, Software Developer Portfolio",
-};
+// export const metadata = {
+//   title: "Hussain Amet Portfolio",
+//   description: "Hussain Amet Web Developer, Software Developer Portfolio",
+// };
+
+export async function generateMetadata() {
+  return {
+    title: {
+      default: siteData.metaTitle,
+      template: "%s | Hussain Amet Portfolio",
+    },
+    description: siteData.metaDescription,
+    keywords: siteData.metaKeywords,
+    metadataBase: new URL(siteData.url),
+    openGraph: {
+      title: siteData.OGTitle,
+      description: siteData.OGDescription,
+      url: siteData.url,
+      siteName: siteData.OGSiteName,
+      images: [
+        {
+          url: siteData.OGImageUrl,
+          width: 1200,
+          height: 630,
+          alt: "logo",
+        },
+      ],
+      type: "website",
+    }
+  };
+}
 
 export default function RootLayout({ children }) {
   return (

@@ -1,4 +1,23 @@
 {
+    "metaTitle" : "Hussain Amet Portfolio | Full Stack Developer",
+    "metaDescription": "Based in India, I'm a Full Stack Software Developer seeking a full-time opportunity to turn my coding passion into impactful digital solutions. As a fresher, I am ready to learn, adapt, and grow with your team.",
+    "metaKeywords": ["Hussain", "Hussain Amet", "Full Stack Software Developer", "Portfolio", "Projects", "Web Developer", "Frontend Developer", "Backend Developer", "Full Stack Developer", "Responsive Web Applications", "User-Friendly Websites", "Digital Experiences", "Seamless User Experience", "Innovative Solutions", "Clean Code", "Engaging Projects", "India", "Continuous Learning", "Web Development", "Software Development"],
+    "url": "https://hussain-amet-site.vercel.app",
+    "OGSiteName": "Hussain Amet Portfolio",
+    "OGTitle": "Hussain Amet Portfolio | Full Stack Developer",
+    "OGDescription": "Explore the projects and portfolio of Hussain Amet, a software developer specializing in frontend and backend technologies.",
+    "OGImageUrl": "/images/header/Logo.png",
+    "about": {
+        "name": "Hussain Amet",
+        "place": "Udaipur, India",
+        "availability": "Available for a full-time position",
+        "role": "Full Stack Software Developer",
+        "metaTitle": "About Me – Full Stack Developer",
+        "metaDescription": "I craft dynamic and seamless digital experiences by combining frontend and backend development. Based in India, I am a passionate web developer with expertise in building responsive, user-friendly web applications. I strive for clean, efficient code and enjoy creating solutions that provide smooth, engaging experiences. With a keen eye for detail and a commitment to continuous learning, I stay updated with the latest industry trends to deliver innovative projects that make a positive impact.",
+        "metaKeywords": ["Hussain", "Hussain Amet", "Full Stack Software Developer", "Portfolio", "Projects", "Web Developer", "Frontend Developer", "Backend Developer", "Full Stack Developer", "Responsive Web Applications", "User-Friendly Websites", "Digital Experiences", "Seamless User Experience", "Innovative Solutions", "Clean Code", "Engaging Projects", "India", "Continuous Learning", "Web Development", "Software Development"],
+        "OGTitle": "About Me – Full Stack Developer | Hussain Amet Portfolio",
+        "OGDescription": "Learn more about Hussain Amet, a passionate Full Stack Software Developer from India. I create responsive, user-friendly web applications that deliver seamless digital experiences. Explore my skills, projects, and approach to building innovative solutions."
+    },
     "socialLinks": {
         "linkedIn": "https://www.linkedin.com/in/hussain-amet-971183258/",
         "CV": "https://drive.google.com/file/d/1z6HYIb-vBCPHCgAYCGoVB7uso59tjixi/view?usp=drive_link",
@@ -240,7 +259,12 @@
                         "description": "Association Funds is not just a standalone solution—it’s an opportunity to have a personalized financial management platform tailored to your group’s unique needs. The website is available for sale, and buyers can request customized features and preferences to match their specific requirements. Transform the way your group manages finances with a tailored solution just for you!"
                     }
                 ]
-            }
+            },
+            "metaTitle": "Association Funds – Group Savings & Loan Tracker",
+            "metaDescription": "Association Funds is a web app by Hussain Amet that helps individuals and groups track savings, loans, trips, and manage small loans with friends. Enjoy seamless group finance management with notifications and integrated payment options.",
+            "metaKeywords": ["Association Funds", "Group Savings", "Loan Tracker", "Trip Savings", "Friends Loan Tracker", "Payment Integration", "Notifications", "Hussain Amet", "HTML", "CSS", "JavaScript", "React.js", "Bootstrap", "MongoDB", "Express.js", "Node.js", "Redux", "Full Stack Developer", "Portfolio", "Web App", "Financial Tracker", "Savings Management", "Group Finance", "Responsive Web App", "User-Friendly"],
+            "OGTitle": "Association Funds – Group Savings & Loan Tracker | Hussain Amet Portfolio",
+            "OGDescription": "Discover Association Funds, a web app by Hussain Amet to manage personal and group finances efficiently. Track savings, loans, trips, and small loans with friends, all with seamless notifications and payment options."
         },
         "portfolio-website": {
             "title": "My Portfolio",
@@ -287,7 +311,12 @@
                         "description": "JSON file for dynamic content updates."
                     }
                 ]
-            }
+            },
+            "metaTitle" : "My Portfolio",
+            "metaDescription": "Based in India, I'm a Full Stack Software Developer seeking a full-time opportunity to turn my coding passion into impactful digital solutions. As a fresher, I am ready to learn, adapt, and grow with your team.",
+            "metaKeywords": ["Hussain", "Hussain Amet", "HTML", "CSS", "JavaScript", "Next.js", "TailwindCSS", "GSAP", "Full Stack Software Developer", "Portfolio", "Projects", "Web Developer", "Frontend Developer", "Backend Developer", "Full Stack Developer", "Responsive Web Applications", "User-Friendly Websites", "Digital Experiences", "Seamless User Experience", "Innovative Solutions", "Clean Code", "Engaging Projects", "India", "Continuous Learning", "Web Development", "Software Development"],
+            "OGTitle": "Hussain Amet Portfolio | Full Stack Developer",
+            "OGDescription": "Explore the projects and portfolio of Hussain Amet, a software developer specializing in frontend and backend technologies."
         },
         "blog-website": {
             "title": "Blog Website",
@@ -327,7 +356,12 @@
                         "description": "Powered by Appwrite Services for secure and efficient backend-as-a-service (BaaS) integration."
                     }
                 ]
-            }
+            },
+            "metaTitle" : "Blog Website",
+            "metaDescription": "The Blog Website is a sleek and interactive platform built by Hussain Amet, enabling users to share ideas, explore posts, and create well-formatted blogs. Developed with HTML, CSS, JavaScript, TailwindCSS, React.js, Redux, and Appwrite.",
+            "metaKeywords": ["Blog Website", "Hussain Amet", "HTML", "CSS", "JavaScript", "TailwindCSS", "React.js", "Redux", "Appwrite", "Full Stack Developer", "Portfolio", "Web Development", "Interactive Platform", "Blog Platform", "Content Sharing", "Explore Posts", "Create Blogs", "Sleek Design", "User-Friendly", "Functional Web App"],
+            "OGTitle": "Blog Website – Hussain Amet Portfolio | Full Stack Developer",
+            "OGDescription": "Explore the Blog Website by Hussain Amet, a platform to share ideas, explore posts, and create engaging blogs. Built with modern web technologies for a seamless user experience."
         },
         "todo-website": {
             "title": "To-Do Website",
@@ -370,7 +404,12 @@
                         "description": "MongoDB for secure and scalable task storage."
                     }
                 ]
-            }
+            },
+            "metaTitle" : "To-Do Website",
+            "metaDescription": "The To-Do Website is a simple yet powerful task management platform by Hussain Amet. Built with HTML, CSS, JavaScript, Express.js, and MongoDB, it helps users stay organized, create, update, and track daily tasks efficiently.",
+            "metaKeywords": ["To-Do Website", "Hussain Amet", "HTML", "CSS", "JavaScript", "Express.js", "MongoDB", "Full Stack Developer", "Portfolio", "Task Management", "Organize Tasks", "Productivity App", "Web Development", "User-Friendly", "Intuitive Interface", "Daily Tasks", "Track Tasks", "Manage Tasks", "Functional Web App"],
+            "OGTitle": "To-Do Website – Hussain Amet Portfolio | Full Stack Developer",
+            "OGDescription": "Discover the To-Do Website by Hussain Amet, a task management platform designed to help users stay productive and organized. Built with modern web technologies for a seamless experience."
         },
         "simon-game": {
             "title": "Simon Game",
@@ -436,7 +475,12 @@
                         "description": "The game ends when you make a mistake, and you can restart to try again."
                     }
                 ]
-            }
+            },
+            "metaTitle" : "Simon Game",
+            "metaDescription": "The Simon Game is a fun and challenging memory game by Hussain Amet. Built with HTML, CSS, Bootstrap, JavaScript, and jQuery, it tests recall and focus while tracking progress, current stage, and high scores in real-time.",
+            "metaKeywords": ["Simon Game", "Hussain Amet", "HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Full Stack Developer", "Portfolio", "Memory Game", "Fun Game", "Engaging Interface", "Real-Time Tracking", "High Score", "Game Development", "Interactive Web App", "User-Friendly", "Web Game"],
+            "OGTitle": "Simon Game – Hussain Amet Portfolio | Full Stack Developer",
+            "OGDescription": "Play the Simon Game by Hussain Amet, a memory challenge platform designed to test your recall and focus. Enjoy an engaging interface with real-time progress and high score tracking."
         },
         "dice-game": {
             "title": "Dice Game",
@@ -498,7 +542,12 @@
                         "description": "Roll again for endless fun and competition."
                     }
                 ]
-            }
+            },
+            "metaTitle" : "Dice Game",
+            "metaDescription": "The Dice Game is a fun two-player browser-based game by Hussain Amet. Built with HTML, CSS, Bootstrap, JavaScript, and jQuery, it lets players compete by rolling dice for the highest score, with vibrant visuals and smooth animations.",
+            "metaKeywords": ["Dice Game", "Hussain Amet", "HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "Full Stack Developer", "Portfolio", "Two-Player Game", "Browser Game", "Fun Game", "Interactive Web App", "High Score", "Game Development", "Smooth Animations", "User-Friendly", "Web Game"],
+            "OGTitle": "Dice Game – Hussain Amet Portfolio | Full Stack Developer",
+            "OGDescription": "Play the Dice Game by Hussain Amet, a two-player browser game where players compete to roll the highest score. Enjoy vibrant visuals and smooth animations for a fun gaming experience."
         }
     }
 }
