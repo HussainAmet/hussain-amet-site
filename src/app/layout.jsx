@@ -4,7 +4,7 @@ import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
 import CustomCursor from "@/components/utility/customCursor/CustomCursor";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
-import siteData from '@/data/siteData.json';
+import siteData from '@/json/siteData.json';
 
 // export const metadata = {
 //   title: "Hussain Amet Portfolio",
