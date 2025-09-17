@@ -34,7 +34,7 @@ function HeroSection() {
           flex flex-col gap-5
         '
       >
-        <h1 
+        <h1
           className='
             font-aptly-medium-italic
             xl:text-9xl
@@ -44,7 +44,7 @@ function HeroSection() {
         >
           {projectData.title}
         </h1>
-        <p
+        <h2
           className='
             font-aptly-medium-italic
             xl:text-4xl
@@ -53,7 +53,7 @@ function HeroSection() {
           '
         >
           {projectData.tagLine}
-        </p>
+        </h2>
         <p
           className='
             font-Inter text-[var(--light-white)]
@@ -71,7 +71,7 @@ function HeroSection() {
         '
       >
         {
-          projectData.skill.split(", ").map((skill, index) => 
+          projectData.skill.split(", ").map((skill, index) =>
             <div
               key={index}
               className='
@@ -79,7 +79,7 @@ function HeroSection() {
                 xl:text-lg
                 lg:text-base
                 text-sm
-                
+
               '
             >
               <span>{skill}</span>

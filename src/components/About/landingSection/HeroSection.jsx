@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import FaceImage from '@/assets/profile_image/faceImage.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +39,7 @@ function HeroSection() {
   return (
     <div
       className='
-        grid items-center justify-center 
+        grid items-center justify-center
         xl:auto-cols-max xl:gap-11 xl:grid-flow-col
         lg:gap-11
         gap-6
@@ -52,7 +53,7 @@ function HeroSection() {
           md:mb-5 sm:mb-5
         '
       >
-        <p
+        <h2
           className='
             font-aptly-regular mb-2 tracking-tighter
             xl:text-[4vw]
@@ -61,7 +62,7 @@ function HeroSection() {
           '
         >
           Hussain Amet
-        </p>
+        </h2>
         <div
           className='
             font-Inter
@@ -123,7 +124,7 @@ function HeroSection() {
               rounded-full relative
             '
           >
-            <Image src="/images/profile_image/faceImage.png" alt='faceImage' width={600} height={600}
+            <Image src={FaceImage} alt='faceImage' width={600} height={600}
               className='
                 absolute
                 xl:w-[31.75vw] xl:h-[31.75vw] xl:top-5
@@ -134,7 +135,7 @@ function HeroSection() {
           </div>
         </div>
       </center>
-      <p
+      <h2
         ref={postRef}
         className='
           font-aptly-regular tracking-tighter text-center
@@ -144,7 +145,7 @@ function HeroSection() {
         '
       >
         Full Stack<br/>Web Developer
-      </p>
+      </h2>
     </div>
   )
 }

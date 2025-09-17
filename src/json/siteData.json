@@ -6,7 +6,7 @@
     "OGSiteName": "Hussain Amet Portfolio",
     "OGTitle": "Hussain Amet Portfolio | Full Stack Developer",
     "OGDescription": "Explore the projects and portfolio of Hussain Amet, a software developer specializing in frontend and backend technologies.",
-    "OGImageUrl": "/images/header/Logo.png",
+    "OGImageUrl": "https://hussain-amet-site.vercel.app/images/header/Logo.png",
     "about": {
         "name": "Hussain Amet",
         "place": "Udaipur, India",
@@ -102,6 +102,13 @@
             "graduationYear": "2020"
         }
     ],
+    "my_projects": {
+        "metaTitle": "My Projects",
+        "metaDescription": "Explore the projects developed by Hussain Amet, a full stack software developer skilled in frontend and backend technologies. From web applications to interactive games, discover innovative solutions built with modern tech stacks.",
+        "metaKeywords": ["Hussain Amet", "Full Stack Developer", "Portfolio", "Web Development Projects", "Frontend Development", "Backend Development", "JavaScript Projects", "React.js Projects", "MongoDB Projects", "Task Management App", "Blog Website", "Game Development", "Responsive Web Applications", "Software Development", "Personal Portfolio"],
+        "OGTitle": "My Projects – Hussain Amet Portfolio | Full Stack Developer",
+        "OGDescription": "Discover the projects by Hussain Amet, showcasing expertise in frontend and backend development. From productivity tools to interactive games, explore a portfolio of innovative web applications."
+    },
     "projects": {
         "funds-website": {
             "title": "Funds Website",

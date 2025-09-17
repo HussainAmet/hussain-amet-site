@@ -6,15 +6,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Text({ text, className = '', ...props }) {
+function Text({ text, className = '', noref, ...props }) {
   const textRef = useRef(null);
 
   useEffect(() => {
-    if (!props.noRef) {
+    if (!noref) {
       const textArr = text.split("");
       const clutter = textArr.map(letter => `<span class="block text-span">${letter}</span>`).join('');
       textRef.current.innerHTML = clutter;
-  
+
       gsap.from(textRef.current.querySelectorAll('.text-span'), {
         y: 90,
         opacity: 0,
@@ -29,11 +29,11 @@ function Text({ text, className = '', ...props }) {
         }
       });
     }
-  }, [text, props.noRef]);
+  }, [text, noref]);
 
   return (
     <div
-      ref={props.noRef ? null : textRef}
+      ref={noref ? null : textRef}
       className={`
         ${className} text-span
         font-aptly-regular-italic flex justify-center overflow-hidden whitespace-pre
@@ -44,7 +44,7 @@ function Text({ text, className = '', ...props }) {
         w-[224px] text-[44px] h-[52px]
       `}
       {...props}
-    >{props.noRef ? text : ""}</div>
+    >{noref ? text : ""}</div>
   );
 }
 

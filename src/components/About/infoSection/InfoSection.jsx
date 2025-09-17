@@ -49,7 +49,7 @@ function InfoSection() {
         '
     >
         <div className='font-aptly-regular'>
-            <p
+            <h1
                 ref={infoRef}
                 className='
                     text-center
@@ -67,7 +67,7 @@ function InfoSection() {
                 {renderTextWithSpans("and")}
                 <span className='text-[var(--accent)] font-medium xl:text-[65px] lg:text-6xl text-[32px]'>{renderTextWithSpans("backend")}</span>
                 {renderTextWithSpans("development")}.
-            </p>
+            </h1>
             <div
                 className='
                     flex

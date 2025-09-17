@@ -15,7 +15,7 @@ function HeroSection({list, setList}) {
             duration: 1.5,
             ease: "power3"
         });
-        
+
         gsap.from(viewRef.current, {
             x: 90,
             opacity: 0,
@@ -40,7 +40,7 @@ function HeroSection({list, setList}) {
                     xl:w-[56vw]
                 '
             >
-                <h1 
+                <h1
                     className='
                         font-aptly-medium-italic
                         xl:text-9xl
@@ -50,7 +50,7 @@ function HeroSection({list, setList}) {
                 >
                     Personal Projects
                 </h1>
-                <p
+                <h2
                     className='
                         font-aptly-medium-italic
                         xl:text-4xl
@@ -59,7 +59,7 @@ function HeroSection({list, setList}) {
                     '
                 >
                     Take a look at some of my projects!
-                </p>
+                </h2>
                 <p
                     className='
                         font-Inter text-[var(--light-white)]
@@ -90,7 +90,7 @@ function HeroSection({list, setList}) {
                 </p>
                 <div
                     className='
-                        flex 
+                        flex
                         xl:gap-6
                         gap-1
                     '

@@ -38,7 +38,7 @@ function DetailsSection() {
       rootMargin: '0px',
       threshold: 0.5,
     };
-  
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -46,14 +46,14 @@ function DetailsSection() {
         }
       });
     }, observerOptions);
-  
+
     sections.forEach(section => observer.observe(section));
-  
+
     return () => {
       sections.forEach(section => observer.unobserve(section));
     };
   }, []);
-  
+
   return (
     <div
       className='
@@ -120,10 +120,10 @@ function DetailsSection() {
           </ul>
         </div>
       </div>
-      
+
       <div
         className='
-          bg-[var(--light-white-20)] 
+          bg-[var(--light-white-20)]
           xl:w-[1px]
           lg:h-[1px]
           md:h-[1px]
@@ -146,7 +146,7 @@ function DetailsSection() {
         >
             <p
               className='
-                font-Inter 
+                font-Inter
                 xl:text-lg
               '
             >
@@ -172,7 +172,7 @@ function DetailsSection() {
                     flex flex-col gap-7
                   '
                 >
-                    <h1
+                    <p
                       className="
                           font-aptly-medium-italic
                           xl:text-4xl
@@ -181,12 +181,12 @@ function DetailsSection() {
                         "
                     >
                       {link}
-                    </h1>
+                    </p>
                     {
                       link === "UI Snapshots" ?
                       <SnapShotsSection projectData={projectData} />
                     :
-                      projectData.quickLinks[link].map((item, index) => 
+                      projectData.quickLinks[link].map((item, index) =>
                         item.title || item.description ?
                           (
                             <div key={index}>

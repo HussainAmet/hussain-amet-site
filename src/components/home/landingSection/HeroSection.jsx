@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from "next/image";
 import './style.css';
+import HomeImage from '@/assets/profile_image/homeImage.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,40 +18,6 @@ function HeroSection() {
   const lastNameRef = useRef(null);
 
   useGSAP(() => {
-    // const firstTextArr = "hussain".split("");
-    // const firstClutter = firstTextArr.map(letter => `<span class="block first-text-span">${letter}</span>`).join('');
-    // firstNameRef.current.innerHTML = firstClutter;
-
-    // const lastTextArr = "amet".split("");
-    // const lastClutter = lastTextArr.map(letter => `<span class="block last-text-span">${letter}</span>`).join('');
-    // lastNameRef.current.innerHTML = lastClutter;
-
-    // gsap.from(firstNameRef.current.querySelectorAll('.first-text-span'), {
-    //   y: 90,
-    //   opacity: 0,
-    //   duration: 1,
-    //   stagger: 0.1,
-    //   ease: "bounce.out",
-    //   scrollTrigger: {
-    //     trigger: firstNameRef.current,
-    //     start: "top bottom",
-    //     toggleActions: "play none none none",
-    //   }
-    // });
-
-    // gsap.from(lastNameRef.current.querySelectorAll('.last-text-span'), {
-    //   y: 90,
-    //   opacity: 0,
-    //   duration: 1,
-    //   stagger: 0.1,
-    //   ease: "bounce.out",
-    //   scrollTrigger: {
-    //     trigger: lastNameRef.current,
-    //     start: "top bottom",
-    //     toggleActions: "play none none none",
-    //   }
-    // });
-
     gsap.from(heroRef.current, {
       x: -90,
       opacity: 0,
@@ -78,12 +45,8 @@ function HeroSection() {
     <div className="xl:flex block">
       <div ref={heroRef} className="xl:w-3/4">
         <div>
-          {/* <div className="relative uppercase font-aptly-medium-italic text-[28vw] text-center xl:hidden mb-6">
-            <div className="flex justify-center" ref={firstNameRef}></div>
-            <div className="flex justify-center" ref={lastNameRef}></div>
-          </div> */}
           <div className="w-full flex justify-center items-center xl:hidden mb-6 " >
-            <Image src='/images/profile_image/homeImage.png' alt="image" width={600} height={600} className="w-[55vw] animate-float" />
+            <Image src={HomeImage} alt="image" width={600} height={600} className="w-[55vw] animate-float" />
           </div>
         </div>
         <div className="xl:px-[24px]">
@@ -94,7 +57,7 @@ function HeroSection() {
               leading-[53px]
             "
           >
-            <p
+            <h1
               className="
                 font-aptly-medium-italic uppercase
                 xl:text-[80px]
@@ -102,9 +65,16 @@ function HeroSection() {
                 text-[44px]
               "
             >
-              hey y&apos;all <span className="text-[var(--accent)]">*</span>{" "}
-              i&apos;m <span className="text-[var(--accent)]">hussain amet</span>!
-            </p>
+              <span className="text-[var(--accent)] block">hussain amet</span>
+              <span className="
+                block
+                xl:text-[50px]
+                lg:text-[40px]
+                text-[34px]
+              ">full stack developer</span>
+              {/* hey y&apos;all <span className="text-[var(--accent)]">*</span>{" "}
+              i&apos;m <span className="text-[var(--accent)]">hussain amet</span>! */}
+            </h1>
           </div>
           <div className="flex gap-10 flex-col pt-6">
             <div
@@ -117,9 +87,9 @@ function HeroSection() {
             >
               <p>
                 I&apos;m a{" "}
-                <span className="text-[var(--white)]">
+                <strong className="text-[var(--white)]">
                   full stack software developer
-                </span>
+                </strong>
                 , ready to turn your vision into powerful, seamless solutions.
               </p>
               <p>
@@ -159,11 +129,8 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      {/* <div ref={imageRef} className="w-full xl:flex justify-center items-center hidden" >
-        <Image src='/images/HA1.svg' alt="image" width={250} height={250} className="border-[2px] border-[var(--light-white)] animate-float rounded-full shadow-custom-blue bg-[var(--accent)] " />
-      </div> */}
       <div ref={imageRef} className="w-full xl:flex justify-center items-center hidden" >
-        <Image src='/images/profile_image/homeImage.png' alt="image" width={600} height={600} className="w-[22vw]" />
+        <Image src={HomeImage} alt="image" width={600} height={600} className="w-[22vw]" />
       </div>
     </div>
   );
