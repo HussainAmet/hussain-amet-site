@@ -3,8 +3,8 @@ import AboutMe from '@/page/AboutMe'
 
 export default function AboutMePage() {
   return (
-    <PageContainer>
+    // <PageContainer>
       <AboutMe/>
-    </PageContainer>
+    // </PageContainer>
   )
 };

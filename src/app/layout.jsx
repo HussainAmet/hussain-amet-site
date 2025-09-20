@@ -1,15 +1,11 @@
 import "./globals.css";
-import { NavbarContainer } from '@/components/utility/container/Container';
+import { NavbarContainer, PageContainer } from '@/components/utility/container/Container';
 import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
-import CustomCursor from "@/components/utility/customCursor/CustomCursor";
+// import CustomCursor from "@/components/utility/customCursor/CustomCursor";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
 import siteData from '@/json/siteData.json';
-
-// export const metadata = {
-//   title: "Hussain Amet Portfolio",
-//   description: "Hussain Amet Web Developer, Software Developer Portfolio",
-// };
+import dynamic from "next/dynamic";
 
 export async function generateMetadata() {
   return {
@@ -38,6 +34,10 @@ export async function generateMetadata() {
   };
 }
 
+const CustomCursor = dynamic(() => import("@/components/utility/customCursor/CustomCursor"), {
+  ssr: false
+});
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="dOTMamZFyXCHILsW_4b_liGAGGEVNWcTFDbKQLxxI6M"
         />
-        <link rel="icon" href="/images/header/LogoFav.ico" type="image/x-icon" />
+        <link rel="icon" href="/images/header/LogoWithBGFav.ico" type="image/x-icon" />
       </head>
       <body className="leading-none text-[var(--white)] no-scrollbar">
         <LoaderProvider>
@@ -54,9 +54,9 @@ export default function RootLayout({ children }) {
           <NavbarContainer>
             <Header />
           </NavbarContainer>
-          <div>
+          <PageContainer>
             {children}
-          </div>
+          </PageContainer>
           <Footer />
         </LoaderProvider>
       </body>

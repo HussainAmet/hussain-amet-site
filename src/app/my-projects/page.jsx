@@ -3,9 +3,9 @@ import MyProjects from '@/page/MyProjects';
 
 function MyProjectsPage() {
   return (
-    <PageContainer>
+    // <PageContainer>
       <MyProjects/>
-    </PageContainer>
+    // </PageContainer>
   )
 }
 

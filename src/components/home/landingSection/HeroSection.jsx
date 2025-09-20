@@ -65,7 +65,7 @@ function HeroSection() {
                 text-[44px]
               "
             >
-              <span className="text-[var(--accent)] block">hussain amet</span>
+              <span className="text-[var(--accent)] block">hussain amet </span>
               <span className="
                 block
                 xl:text-[50px]
@@ -90,7 +90,7 @@ function HeroSection() {
                 <strong className="text-[var(--white)]">
                   full stack software developer
                 </strong>
-                , ready to turn your vision into powerful, seamless solutions.
+                , ready to turn your vision into powerful and seamless solutions.
               </p>
               <p>
                 <span className="text-[var(--accent)] font-aptly-medium">*</span>{" "}

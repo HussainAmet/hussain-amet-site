@@ -4,9 +4,9 @@ import Home from "@/page/Home";
 export default function HomePage() {
   return (
     <>
-      <PageContainer>
+      {/* <PageContainer> */}
         <Home />
-      </PageContainer>
+      {/* </PageContainer> */}
     </>
   );
 }

@@ -4,9 +4,9 @@ import React from 'react'
 
 function ProjectDetailPage() {
   return (
-    <PageContainer>
+    // <PageContainer>
         <ProjectDetail />
-    </PageContainer>
+    // </PageContainer>
   )
 }
 
