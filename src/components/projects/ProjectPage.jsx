@@ -4,7 +4,17 @@ import AllProjectListSection from "@/components/projects/allProjectListSection/A
 import HeroSection from "@/components/projects/landingSection/HeroSection";
 
 function ProjectPage() {
-  const [list, setList] = useState(window.innerWidth > 990 ? "list" : "grid");
+  const [list, setList] = useState("grid");
+
+  useEffect(() => {
+    // this runs only on client
+    if (window.innerWidth > 990) {
+      setList("list");
+    } else {
+      setList("grid");
+    }
+  }, []);
+
   return (
     <>
       <HeroSection list={list} setList={setList} />
