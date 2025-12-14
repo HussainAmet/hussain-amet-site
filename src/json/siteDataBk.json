@@ -30,9 +30,9 @@
   "OGImageUrl": "https://hussain-amet-site.vercel.app/images/header/LogoWithBG.jpeg",
   "about": {
     "name": "Hussain Amet",
-    "place": "India",
+    "place": "Udaipur, India",
     "availability": "Available for a full-time position",
-    "role": "Software Developer",
+    "role": "Full Stack Software Developer",
     "metaTitle": "About Me – Full Stack Developer",
     "metaDescription": "Hussain Amet | Full Stack Software Developer crafting robust APIs, scalable systems, and efficient database solutions for seamless web apps",
     "metaKeywords": [

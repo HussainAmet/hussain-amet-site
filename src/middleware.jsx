@@ -23,6 +23,14 @@ export function middleware(request) {
     },
   });
 
+  const token = url.searchParams.get('token');
+
+  if (url.pathname.includes('site_CMS')) {
+    if (!token || token !== process.env.NEXT_APP_TOKEN) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
+  }
+
   return response;
 }
 

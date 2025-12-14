@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import FaceImage from '@/assets/profile_image/faceImage.png'
+import siteData from '@/json/siteData.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,6 +37,9 @@ function HeroSection() {
       }
     })
   })
+
+  const role = siteData.about.role.split(" ").join("<br/>");
+
   return (
     <div
       className='
@@ -61,7 +65,7 @@ function HeroSection() {
             text-6xl
           '
         >
-          Hussain Amet
+          {siteData.about.name}
         </h2>
         <div
           className='
@@ -76,7 +80,7 @@ function HeroSection() {
               text-base
             '
           >
-            Based in India
+            Based in {siteData.about.place}
           </p>
           <div
             className='
@@ -100,7 +104,7 @@ function HeroSection() {
                 text-base
               '
             >
-              Available for a full-time position
+              {siteData.about.availability}
             </p>
           </div>
         </div>
@@ -144,7 +148,7 @@ function HeroSection() {
           text-5xl md:mt-5 sm:mt-5
         '
       >
-        Full Stack<br/>Web Developer
+        {role && <span dangerouslySetInnerHTML={{ __html: role }} />}
       </h2>
     </div>
   )
