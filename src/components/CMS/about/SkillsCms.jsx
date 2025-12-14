@@ -29,9 +29,9 @@ function SkillsCms() {
         <Form className="flex flex-col" onSubmit={onSubmit}>
             <div className='grid grid-cols-1 gap-4 mb-4 w-full'>
                 {data.skills.map((skill, index) => (
-                    <div>
+                    <div key={index}>
                         <p className='mb-4'>{skill.title}</p>
-                        <div key={index} className='grid grid-cols-4 gap-4 mb-4'>
+                        <div className='grid grid-cols-4 gap-4 mb-4'>
                             {skill.skills.map((item, idx) => (
                                 <Input
                                     key={idx}
