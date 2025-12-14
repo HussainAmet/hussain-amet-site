@@ -1,10 +1,8 @@
 import React from 'react'
 import Heading from '../heading/Heading'
 import { headers } from 'next/headers';
-import LearnMore from '../learnMore/LearnMore';
-import siteData from "@/json/siteData.json";
 
-const MyExperienceSection = () => {
+const MyExperienceSection = ({siteData}) => {
     const device = headers().get('x-device-type') || 'mobile';
     return (
         <div>

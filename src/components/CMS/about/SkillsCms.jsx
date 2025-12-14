@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Input, Button } from "@heroui/react";
-import siteData from '@/json/siteData.json';
 
-function SkillsCms() {
+function SkillsCms({ siteData }) {
     const [data, setData] = useState(siteData);
 
     const onSubmit = async (e) => {
@@ -31,7 +30,7 @@ function SkillsCms() {
                 {data.skills.map((skill, index) => (
                     <div key={index}>
                         <p className='mb-4'>{skill.title}</p>
-                        <div className='grid grid-cols-4 gap-4 mb-4'>
+                        <div className='grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-4 mb-4'>
                             {skill.skills.map((item, idx) => (
                                 <Input
                                     key={idx}

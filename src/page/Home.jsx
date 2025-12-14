@@ -7,16 +7,20 @@ import Line from "@/components/utility/line/Line";
 import ContactMeSection from "@/components/utility/contactMeSection/ContactMeSection";
 import MyExperienceSection from "@/components/utility/myExperienceSection/MyExperienceSection";
 
-function Home() {
+async function Home() {
+    const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
+
     return (
         <>        
-            <HeroSection />
+            <HeroSection siteData={siteData} />
             <AboutMeSection />
-            <MySkillsSection />
-            <MyExperienceSection />
-            <MyProjectsSection />
+            <MySkillsSection siteData={siteData} />
+            <MyExperienceSection siteData={siteData} />
+            <MyProjectsSection siteData={siteData} />
             <Line direction='left' />
-            <ContactMeSection />
+            <ContactMeSection siteData={siteData} />
         </>
     );
 }

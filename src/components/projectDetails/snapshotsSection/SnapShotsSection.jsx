@@ -45,6 +45,7 @@ function SnapShotsSection({ projectData }) {
                             alt='arrow'
                             width="30"
                             height="30"
+                            className={`${snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "rotate-180" : ""}`}
                         />
                         <Link
                             href={snapshotsCount === projectData.quickLinks["UI Snapshots"].length ? "#second-snapshot" : "#third-snapshot"}

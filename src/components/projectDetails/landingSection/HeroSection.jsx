@@ -1,12 +1,11 @@
 'use client'
 import LinkComponent from '@/components/utility/link/Link';
 import { useParams } from 'next/navigation';
-import siteData from "@/json/siteData.json";
 import React, { useRef } from 'react';
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-function HeroSection() {
+function HeroSection({siteData}) {
     const { project } = useParams();
     const projectData = siteData.projects[project];
 

@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import siteData from '@/json/siteData';
 import Text from '@/components/utility/text/Text';
 
-function ContactMeSection() {
+function ContactMeSection({siteData}) {
 
     return (
         <div className='

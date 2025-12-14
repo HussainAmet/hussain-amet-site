@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AllProjectListSection from "@/components/projects/allProjectListSection/AllProjectListSection";
 import HeroSection from "@/components/projects/landingSection/HeroSection";
 
-function ProjectPage() {
+function ProjectPage({siteData}) {
   const [list, setList] = useState("grid");
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function ProjectPage() {
   return (
     <>
       <HeroSection list={list} setList={setList} />
-      <AllProjectListSection list={list} />
+      <AllProjectListSection siteData={siteData} list={list} />
     </>
   );
 }

@@ -1,7 +1,9 @@
 import React from "react";
-import siteData from "@/json/siteData.json";
 
 export async function generateMetadata() {
+  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
   return {
     title: siteData.my_projects.metaTitle,
     description: siteData.my_projects.metaDescription,

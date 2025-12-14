@@ -3,9 +3,8 @@ import Link from 'next/link';
 import React, { useRef, useState } from 'react'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import siteData from "@/json/siteData.json";
 
-function MyProjectsInListView() {
+function MyProjectsInListView({siteData}) {
   const [hoveredProject, setHoveredProject] = useState(-1)
   const projectNameRef = useRef(null);
   const project1Refs = useRef([]);

@@ -1,13 +1,12 @@
-import React from "react";
 import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjectsSection";
 import MyProjectsInListView from "../myProjectsInListView/MyProjectsInListView";
 
-function AllProjectListSection({ list }) {
+function AllProjectListSection({ siteData, list }) {
   return (
     <>
       {list === 'list' ?
-        <MyProjectsInListView />
-      : <MyProjectsSection allowed={false} renderList={6} />
+        <MyProjectsInListView siteData={siteData} />
+      : <MyProjectsSection siteData={siteData} allowed={false} renderList={6} />
       }
     </>
   )

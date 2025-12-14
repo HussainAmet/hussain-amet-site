@@ -2,7 +2,6 @@
 import Heading from "@/components/utility/heading/Heading";
 import Image from "next/image";
 import React, { useRef } from "react";
-import siteData from "@/json/siteData.json";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,7 +10,7 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MyProjectsSection({allowed = true, renderList = 2}) {
+function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
   const leftCard = useRef([]);
   const rightCard = useRef([]);
   

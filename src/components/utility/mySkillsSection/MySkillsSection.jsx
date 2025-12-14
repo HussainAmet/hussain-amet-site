@@ -4,11 +4,10 @@ import React, { Fragment, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import siteData from "@/json/siteData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MySkillsSection() {
+function MySkillsSection({siteData}) {
   const frontRef = useRef(null);
   const backRef = useRef(null);
 

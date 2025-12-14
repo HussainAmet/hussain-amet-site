@@ -2,14 +2,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef } from 'react'
-import siteData from '@/json/siteData';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function InfoSection() {
+function InfoSection({siteData}) {
     const infoRef = useRef(null);
 
     useGSAP(() => {

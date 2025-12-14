@@ -5,10 +5,9 @@ import UnOrderedList from '../unOrderedList/UnOrderedList'
 import SnapShotsSection from '../snapshotsSection/SnapShotsSection'
 import OrderedList from '../orderedList/OrderedList'
 import { useParams } from 'next/navigation';
-import siteData from "@/json/siteData.json";
 import Link from 'next/link'
 
-function DetailsSection() {
+function DetailsSection({siteData}) {
   const { project } = useParams();
   const projectData = siteData.projects[project];
   const [activeLink, setActiveLink] = useState("UI Snapshots");

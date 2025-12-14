@@ -1,7 +1,6 @@
 "use client";
 import LinkComponent from "@/components/utility/link/Link";
 import React, { useRef } from "react";
-import siteData from "@/json/siteData.json";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -11,7 +10,7 @@ import HomeImage from '@/assets/profile_image/homeImage.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
-function HeroSection() {
+function HeroSection({ siteData }) {
   const heroRef = useRef(null);
   const imageRef = useRef(null);
   const firstNameRef = useRef(null);

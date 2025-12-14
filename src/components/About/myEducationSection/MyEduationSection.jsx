@@ -1,10 +1,9 @@
 import Heading from '@/components/utility/heading/Heading'
 import Line from '@/components/utility/line/Line'
 import React from 'react'
-import siteData from "@/json/siteData.json";
 import { headers } from 'next/headers';
 
-function MyEduationSection() {
+function MyEduationSection({siteData}) {
   const device = headers().get('x-device-type') || 'mobile';
   return (
     <div>

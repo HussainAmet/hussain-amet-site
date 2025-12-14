@@ -3,12 +3,15 @@ import ContactMeSection from '@/components/utility/contactMeSection/ContactMeSec
 import Line from '@/components/utility/line/Line'
 import React from 'react'
 
-function MyProjects() {
+async function MyProjects() {
+  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
   return (
     <>
-      <ProjectPage />
+      <ProjectPage siteData={siteData} />
       <Line direction='left' />
-      <ContactMeSection />
+      <ContactMeSection siteData={siteData} />
     </>
   )
 }

@@ -8,17 +8,21 @@ import MyEduationSection from '@/components/About/myEducationSection/MyEduationS
 import InfoSection from '@/components/About/infoSection/InfoSection';
 import MyExperienceSection from '@/components/utility/myExperienceSection/MyExperienceSection';
 
-function AboutMe() {
+async function AboutMe() {
+  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
+  
   return (
     <>
-      <HeroSection />
-      <InfoSection />
-      <MySkillsSection />
-      <MyExperienceSection />
-      <MyProjectsSection />
-      <MyEduationSection />
+      <HeroSection siteData={siteData} />
+      <InfoSection siteData={siteData} />
+      <MySkillsSection siteData={siteData} />
+      <MyExperienceSection siteData={siteData} />
+      <MyProjectsSection siteData={siteData} />
+      <MyEduationSection siteData={siteData} />
       <Line direction='left' />
-      <ContactMeSection />
+      <ContactMeSection siteData={siteData} />
     </>
   )
 }

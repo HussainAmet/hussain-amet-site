@@ -1,6 +1,5 @@
 "use client"
 import MainHeader from '@/components/utility/header/MainHeader';
-import siteData from '@/json/siteData'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,7 +7,7 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Header() {
+function Header({ siteData }) {
     const navRef = useRef(null);
 
     useGSAP(() => {

@@ -1,9 +1,12 @@
 import React from 'react'
 import CmsPage from '@/components/CMS/CmsPage'
 
-function page() {
+async function page() {
+  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
   return (
-    <CmsPage/>
+    <CmsPage siteData={siteData} />
   );
 }
 

@@ -4,13 +4,16 @@ import ContactMeSection from '@/components/utility/contactMeSection/ContactMeSec
 import Line from '@/components/utility/line/Line'
 import React from 'react'
 
-function ProjectDetail() {
+async function ProjectDetail() {
+  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
   return (
     <>
-        <HeroSection />
-        <DetailsSection />
+        <HeroSection siteData={siteData} />
+        <DetailsSection siteData={siteData} />
         <Line direction="left" />
-        <ContactMeSection />
+        <ContactMeSection siteData={siteData} />
     </>
   )
 }

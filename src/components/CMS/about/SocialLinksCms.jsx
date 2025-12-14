@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Input, Button } from "@heroui/react";
-import siteData from '@/json/siteData.json';
 
-function SocialLinksCms() {
+function SocialLinksCms({ siteData }) {
   const [data, setData] = useState(siteData);
 
   const onSubmit = async (e) => {
@@ -25,7 +24,7 @@ function SocialLinksCms() {
 
   return (
     <Form className="flex flex-col" onSubmit={onSubmit}>
-      <div className='grid grid-cols-4 gap-4 mb-4 w-full'>
+      <div className='grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-4 mb-4 w-full'>
         <Input
           isRequired
           label="LinkedIn"
@@ -70,7 +69,7 @@ function SocialLinksCms() {
           onChange={(e) => { data.socialLinks.github = e.target.value; setData({ ...data }); }}
         />
       </div>
-      <div className='grid grid-cols-4 gap-4 mb-4 w-full'>
+      <div className='grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-4 mb-4 w-full'>
         {data.contacts.map((contact, index) => (
             <Input
                 key={index}

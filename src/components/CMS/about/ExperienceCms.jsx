@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Input, Button, Textarea } from "@heroui/react";
-import siteData from '@/json/siteData.json';
 
-function ExperienceCms() {
+function ExperienceCms({ siteData }) {
     const [data, setData] = useState(siteData);
 
     const onSubmit = async (e) => {
@@ -44,7 +43,7 @@ function ExperienceCms() {
                 {data.experiences.map((experience, index) => (
                     <>
                         <p>{experience.company}</p>
-                        <div className='grid grid-cols-3 gap-4 mb-4 w-full'>
+                        <div className='grid [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] gap-4 mb-4 w-full'>
                             <Input
                                 key={index}
                                 isRequired
@@ -102,7 +101,7 @@ function ExperienceCms() {
                     </>
                 ))}
                 <p>Add New Experience</p>
-                <div className='grid grid-cols-3 gap-4 mb-4 w-full'>
+                <div className='grid [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] gap-4 mb-4 w-full'>
                     <Input
                         label="Company"
                         labelPlacement="outside"

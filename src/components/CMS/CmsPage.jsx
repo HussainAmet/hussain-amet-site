@@ -7,7 +7,7 @@ import SocialLinksCms from './about/SocialLinksCms';
 import SkillsCms from './about/SkillsCms';
 import ExperienceCms from './about/ExperienceCms';
 
-function CmsPage() {
+function CmsPage({siteData}) {
     const revertData = async () => {
         await fetch("/api/update-site/revert-data", {
             method: "GET",
@@ -23,16 +23,16 @@ function CmsPage() {
             </div>
             <Accordion variant="splitted">
                 <AccordionItem key="1" aria-label="About" title="About">
-                    <HomeCms />
+                    <HomeCms siteData={siteData}/>
                 </AccordionItem>
                 <AccordionItem key="2" aria-label="Social Links" title="Social Links">
-                    <SocialLinksCms />
+                    <SocialLinksCms siteData={siteData}/>
                 </AccordionItem>
                 <AccordionItem key="3" aria-label="Skills" title="Skills">
-                    <SkillsCms />
+                    <SkillsCms siteData={siteData} />
                 </AccordionItem>
                 <AccordionItem key="4" aria-label="Experience" title="Experience">
-                    <ExperienceCms />
+                    <ExperienceCms siteData={siteData}/>
                 </AccordionItem>
             </Accordion>
         </HeroUIProvider>

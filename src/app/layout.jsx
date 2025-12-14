@@ -4,10 +4,16 @@ import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
 // import CustomCursor from "@/components/utility/customCursor/CustomCursor";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
-import siteData from '@/json/siteData.json';
 import dynamic from "next/dynamic";
 
+const getSiteData = async () => {
+  return await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
+    .then(res => res.json())
+    .catch(() => null);
+};
+
 export async function generateMetadata() {
+  const siteData = await getSiteData();
   return {
     title: {
       default: siteData.metaTitle,
@@ -38,7 +44,8 @@ const CustomCursor = dynamic(() => import("@/components/utility/customCursor/Cus
   ssr: false
 });
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const siteData = await getSiteData();
   return (
     <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
       <head>
@@ -52,7 +59,7 @@ export default function RootLayout({ children }) {
         <LoaderProvider>
           <CustomCursor />
           <NavbarContainer>
-            <Header />
+            <Header siteData={siteData} />
           </NavbarContainer>
           <PageContainer>
             {children}

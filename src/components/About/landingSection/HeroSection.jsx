@@ -4,12 +4,11 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import FaceImage from '@/assets/profile_image/faceImage.png'
-import siteData from '@/json/siteData.json';
+import FaceImage from '@/assets/profile_image/faceImage.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function HeroSection() {
+function HeroSection({siteData}) {
   const nameRef = useRef(null);
   const postRef = useRef(null);
   useGSAP(() => {
