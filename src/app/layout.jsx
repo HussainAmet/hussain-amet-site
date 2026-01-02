@@ -54,10 +54,12 @@ export default async function RootLayout({ children }) {
         <LoaderProvider>
           <CustomCursor />
           <NavbarContainer>
-            <Header siteData={siteData}/>
+            <Header siteData={siteData} />
           </NavbarContainer>
           <PageContainer>
-            <MainContent children={children} />
+            <MainContent>
+              {children}
+            </MainContent>
           </PageContainer>
           <Footer />
         </LoaderProvider>
