@@ -1,16 +1,16 @@
+import { getData } from "@/lib/getData";
+
 export async function generateMetadata() {
 
-  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
+  const siteData = await getData("about");
   
   return {
-    title: siteData.about.metaTitle,
-    description: siteData.about.metaDescription,
-    keywords: siteData.about.metaKeywords,
+    title: siteData.metaTitle,
+    description: siteData.metaDescription,
+    keywords: siteData.metaKeywords,
     openGraph: {
-      title: siteData.about.OGTitle,
-      description: siteData.about.OGDescription,
+      title: siteData.OGTitle,
+      description: siteData.OGDescription,
       url: siteData.url,
       siteName: siteData.OGSiteName,
       images: [

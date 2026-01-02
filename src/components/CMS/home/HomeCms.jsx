@@ -1,16 +1,65 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Input, Button } from "@heroui/react";
+import { getData, updateData } from '@/lib/getData';
 
-function HomeCms({ siteData }) {
-  const [data, setData] = useState(siteData);
+function HomeCms() {
+  const [data, setData] = useState();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFailed, setShowFailed] = useState({ status: false, message: "" });
+
+  const fetchData = async () => {
+    const aboutData = await getData("about");
+    setData(aboutData);
+  };
+
+  useEffect(() => { fetchData(); }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await fetch("/api/update-site", {
+
+    const res = await updateData("about", data);
+
+    if (res.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    fetchData();
+
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+  };
+
+  const revertData = async () => {
+    let res = await fetch("/api/update-site/revert-data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        name: "about",
+      }),
     });
+
+    res = await res.json();
+
+    if (res.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    fetchData();
+
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
   return (
@@ -23,8 +72,8 @@ function HomeCms({ siteData }) {
           name="name"
           placeholder="Enter Name"
           type="text"
-          value={data.about.name}
-          onChange={(e) => { data.about.name = e.target.value; setData({ ...data }); }}
+          value={data?.name}
+          onChange={(e) => { data.name = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -34,8 +83,8 @@ function HomeCms({ siteData }) {
           name="place"
           placeholder="Enter Place"
           type="text"
-          value={data.about.place}
-          onChange={(e) => { data.about.place = e.target.value; setData({ ...data }); }}
+          value={data?.place}
+          onChange={(e) => { data.place = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -45,8 +94,8 @@ function HomeCms({ siteData }) {
           name="availability"
           placeholder="e.g. Available for full-time"
           type="text"
-          value={data.about.availability}
-          onChange={(e) => { data.about.availability = e.target.value; setData({ ...data }); }}
+          value={data?.availability}
+          onChange={(e) => { data.availability = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -56,13 +105,20 @@ function HomeCms({ siteData }) {
           name="role"
           placeholder="Enter Role"
           type="text"
-          value={data.about.role}
-          onChange={(e) => { data.about.role = e.target.value; setData({ ...data }); }}
+          value={data?.role}
+          onChange={(e) => { data.role = e.target.value; setData({ ...data }); }}
         />
       </div>
-      <Button type="submit" variant="solid" color="primary">
-        Submit
-      </Button>
+      <div>
+        <Button type="submit" variant="solid" color="primary" className='mr-5'>
+          Submit
+        </Button>
+        <Button onPress={revertData} variant="solid" color="danger" className="mb-4">
+          Revert Site Data to Backup
+        </Button>
+      </div>
+      <p className={`text-green-400 text-2xl ${!showSuccess && 'hidden'}`}>Data Successfully updated</p>
+      <p className={`text-red-400 text-2xl ${!showFailed?.status && 'hidden'}`}>{showFailed?.message}</p>
     </Form>
   )
 }

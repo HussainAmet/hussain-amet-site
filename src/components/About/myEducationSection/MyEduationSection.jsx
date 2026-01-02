@@ -1,13 +1,12 @@
 import Heading from '@/components/utility/heading/Heading'
 import Line from '@/components/utility/line/Line'
 import React from 'react'
-import { headers } from 'next/headers';
 
 function MyEduationSection({siteData}) {
-  const device = headers().get('x-device-type') || 'mobile';
   return (
     <div>
-        <Heading text={device == 'desktop' ? "My Education" : "Education"} />
+        <div className='md:hidden sm:hidden'><Heading text="My Education" /></div>
+        <div className='xl:hidden lg:hidden'><Heading text="Education" /></div>
         <div
           className='
             flex flex-col

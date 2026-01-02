@@ -1,3 +1,4 @@
+"use client"
 import HeroSection from '@/components/About/landingSection/HeroSection'
 import MySkillsSection from "@/components/utility/mySkillsSection/MySkillsSection";
 import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjectsSection";
@@ -7,12 +8,16 @@ import React from 'react'
 import MyEduationSection from '@/components/About/myEducationSection/MyEduationSection';
 import InfoSection from '@/components/About/infoSection/InfoSection';
 import MyExperienceSection from '@/components/utility/myExperienceSection/MyExperienceSection';
+import { useSiteData } from '@/app/providers/SiteDataProvider';
+import Loader from '@/components/utility/loader/Loader';
 
 async function AboutMe() {
-  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
-  
+  const { siteData, loading } = useSiteData();
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <>
       <HeroSection siteData={siteData} />

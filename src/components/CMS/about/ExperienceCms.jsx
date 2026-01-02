@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Textarea } from "@heroui/react";
+import { getData, updateData } from '@/lib/getData';
 
-function ExperienceCms({ siteData }) {
-    const [data, setData] = useState(siteData);
+function ExperienceCms() {
+    const [data, setData] = useState();
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showFailed, setShowFailed] = useState({status: false, message: ""});
+
+    const fetchData = async () => {
+        const experiencesData = await getData("experiences");
+        setData(experiencesData.experiences);
+    };
+
+    useEffect(() => { fetchData(); }, []);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -13,34 +23,74 @@ function ExperienceCms({ siteData }) {
         const newResponsibility = e.target.elements['new-responsibility'].value;
 
         if (newCompany && newRole && newDuration && newResponsibility) {
-            data.experiences.push({
+            const updated = [...data, {
                 company: newCompany,
                 role: newRole,
                 duration: newDuration,
                 responsibilities: [newResponsibility],
-            });
+            }];
+
+            setData(updated);
         }
 
         for (const [key, value] of Object.entries(e.target.elements)) {
             if (key.includes("add-responsibility")) {
                 const index = parseInt(key.split("-")[2], 10);
                 if (value.value) {
-                    data.experiences[index].responsibilities.push(value.value);
+                    data[index]?.responsibilities.push(value.value);
                 }
             }
         }
 
-        await fetch("/api/update-site", {
+        const res = await updateData("experiences", { experiences: data });
+
+        if (res.status !== 200) {
+            setShowFailed({status: true, message: res.error});
+            setTimeout(() => {
+                setShowFailed({ status: false, message: "" });
+            }, 3000);
+            return;
+        }
+
+        fetchData();
+
+        setShowSuccess(true);
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, 3000);
+    };
+
+    const revertData = async () => {
+        let res = await fetch("/api/update-site/revert-data", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                name: "experiences",
+            }),
         });
+
+        res = await res.json();
+
+        if (res.status !== 200) {
+            setShowFailed({status: true, message: res.error});
+            setTimeout(() => {
+                setShowFailed({ status: false, message: "" });
+            }, 3000);
+            return;
+        }
+
+        fetchData();
+
+        setShowSuccess(true);
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, 3000);
     };
 
     return (
         <Form className="flex flex-col" onSubmit={onSubmit}>
             <div className='grid grid-cols-1 gap-4 mb-4 w-full'>
-                {data.experiences.map((experience, index) => (
+                {data?.map((experience, index) => (
                     <>
                         <p>{experience.company}</p>
                         <div className='grid [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] gap-4 mb-4 w-full'>
@@ -53,7 +103,14 @@ function ExperienceCms({ siteData }) {
                                 placeholder="Enter Company Name"
                                 type="text"
                                 value={experience.company}
-                                onChange={(e) => { data.experiences[index].company = e.target.value; setData({ ...data }); }}
+                                onChange={(e) => {
+                                    const updated = [...data];
+                                    updated[index] = {
+                                        ...updated[index],
+                                        company: e.target.value,
+                                    };
+                                    setData(updated);
+                                }}
                             />
                             <Input
                                 isRequired
@@ -63,7 +120,14 @@ function ExperienceCms({ siteData }) {
                                 placeholder="Enter role"
                                 type="text"
                                 value={experience.role}
-                                onChange={(e) => { data.experiences[index].role = e.target.value; setData({ ...data }); }}
+                                onChange={(e) => {
+                                    const updated = [...data];
+                                    updated[index] = {
+                                        ...updated[index],
+                                        role: e.target.value,
+                                    };
+                                    setData(updated);
+                                }}
                             />
                             <Input
                                 isRequired
@@ -73,7 +137,14 @@ function ExperienceCms({ siteData }) {
                                 placeholder="Enter duration"
                                 type="text"
                                 value={experience.duration}
-                                onChange={(e) => { data.experiences[index].duration = e.target.value; setData({ ...data }); }}
+                                onChange={(e) => {
+                                    const updated = [...data];
+                                    updated[index] = {
+                                        ...updated[index],
+                                        duration: e.target.value,
+                                    };
+                                    setData(updated);
+                                }}
                             />
                         </div>
                         <div className='grid grid-cols-1 gap-4 mb-4 w-full'>
@@ -87,7 +158,18 @@ function ExperienceCms({ siteData }) {
                                     placeholder="Enter responsibility"
                                     type="text"
                                     value={responsibility}
-                                    onChange={(e) => { data.experiences[index].responsibilities[idx] = e.target.value; setData({ ...data }); }}
+                                    onChange={(e) => {
+                                        const updated = [...data];
+                                        const responsibilities = [...updated[index].responsibilities];
+                                        responsibilities[idx] = e.target.value;
+
+                                        updated[index] = {
+                                            ...updated[index],
+                                            responsibilities,
+                                        };
+
+                                        setData(updated);
+                                    }}
                                 />
                             ))}
                             <Textarea
@@ -134,9 +216,16 @@ function ExperienceCms({ siteData }) {
                     />
                 </div>
             </div>
-            <Button type="submit" variant="solid" color="primary">
-                Submit
-            </Button>
+            <div>
+                <Button type="submit" variant="solid" color="primary" className='mr-5'>
+                    Submit
+                </Button>
+                <Button onPress={revertData} variant="solid" color="danger" className="mb-4">
+                    Revert Site Data to Backup
+                </Button>
+            </div>
+            <p className={`text-green-400 text-2xl ${!showSuccess && 'hidden'}`}>Data Successfully updated</p>
+            <p className={`text-red-400 text-2xl ${!showFailed?.status && 'hidden'}`}>{showFailed?.message}</p>
         </Form>
     )
 }

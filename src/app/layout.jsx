@@ -2,18 +2,13 @@ import "./globals.css";
 import { NavbarContainer, PageContainer } from '@/components/utility/container/Container';
 import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
-// import CustomCursor from "@/components/utility/customCursor/CustomCursor";
 import LoaderProvider from "@/components/utility/provider/LoaderProvider";
 import dynamic from "next/dynamic";
-
-const getSiteData = async () => {
-  return await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
-};
+import { getData } from "@/lib/getData";
+import MainContent from "@/components/MainContent";
 
 export async function generateMetadata() {
-  const siteData = await getSiteData();
+  const siteData = await getData("home");
   return {
     title: {
       default: siteData.metaTitle,
@@ -45,7 +40,7 @@ const CustomCursor = dynamic(() => import("@/components/utility/customCursor/Cus
 });
 
 export default async function RootLayout({ children }) {
-  const siteData = await getSiteData();
+  const siteData = await getData("socialLinks");
   return (
     <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
       <head>
@@ -59,10 +54,10 @@ export default async function RootLayout({ children }) {
         <LoaderProvider>
           <CustomCursor />
           <NavbarContainer>
-            <Header siteData={siteData} />
+            <Header siteData={siteData}/>
           </NavbarContainer>
           <PageContainer>
-            {children}
+            <MainContent children={children} />
           </PageContainer>
           <Footer />
         </LoaderProvider>

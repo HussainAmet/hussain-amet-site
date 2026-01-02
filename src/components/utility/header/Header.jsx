@@ -7,7 +7,7 @@ import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Header({ siteData }) {
+function Header({siteData}) {
     const navRef = useRef(null);
 
     useGSAP(() => {
@@ -39,7 +39,7 @@ function Header({ siteData }) {
         },
         {
             text: "LinkedIn",
-            href: siteData.socialLinks.linkedIn,
+            href: siteData.linkedIn,
             imageBefore: '/icons/common/Link_white.svg',
             imageAfter: '/icons/common/Link_black.svg',
             target: "_blank",

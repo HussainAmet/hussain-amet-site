@@ -1,12 +1,18 @@
+"use client"
+import { useSiteData } from '@/app/providers/SiteDataProvider';
 import ProjectPage from '@/components/projects/ProjectPage'
 import ContactMeSection from '@/components/utility/contactMeSection/ContactMeSection'
 import Line from '@/components/utility/line/Line'
+import Loader from '@/components/utility/loader/Loader';
 import React from 'react'
 
 async function MyProjects() {
-  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
+  const { siteData, loading } = useSiteData();
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <>
       <ProjectPage siteData={siteData} />

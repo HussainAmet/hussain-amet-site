@@ -1,25 +1,105 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Input, Button } from "@heroui/react";
+import { getData, updateData } from '@/lib/getData';
 
-function SocialLinksCms({ siteData }) {
-  const [data, setData] = useState(siteData);
+function SocialLinksCms() {
+  const [data, setData] = useState();
+  const [contacts, setContacts] = useState();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFailed, setShowFailed] = useState({ status: false, message: "" });
+
+  const fetchData = async () => {
+    const socialLinksData = await getData("socialLinks");
+    setData(socialLinksData);
+
+    const contactsData = await getData("contacts");
+    setContacts(contactsData.contacts);
+  };
+
+  useEffect(() => { fetchData(); }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (data.socialLinks.email && !data.socialLinks.email.startsWith("mailto:")) {
-      data.socialLinks.email = "mailto:" + data.socialLinks.email;
+    if (data?.email && !data?.email.startsWith("mailto:")) {
+      data.email = "mailto:" + data?.email;
     }
 
-    if ( !data.contacts.find((contact) => contact.label == "Email Me").link.startsWith("mailto:")) {
-      data.contacts.find((contact) => contact.label == "Email Me").link = "mailto:" + data.contacts.find((contact) => contact.label == "Email Me").link;
+    if (!contacts?.find((contact) => contact.label == "Email Me").link.startsWith("mailto:")) {
+      contacts.find((contact) => contact.label == "Email Me").link = "mailto:" + contacts?.find((contact) => contact.label == "Email Me").link;
     }
 
-    await fetch("/api/update-site", {
+    const res = await updateData("socialLinks", data);
+
+    if (res.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    const res2 = await updateData("contacts", { contacts: contacts });
+
+    if (res2.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    fetchData();
+
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+  };
+
+  const revertData = async () => {
+    let res = await fetch("/api/update-site/revert-data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        name: "contacts",
+      }),
     });
+
+    res = await res.json();
+
+    if (res.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    let res2 = await fetch("/api/update-site/revert-data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "socialLinks",
+      }),
+    });
+
+    res = await ress.json();
+
+    if (res2.status !== 200) {
+      setShowFailed({ status: true, message: res.error });
+      setTimeout(() => {
+        setShowFailed({ status: false, message: "" });
+      }, 3000);
+      return;
+    }
+
+    fetchData();
+
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
   return (
@@ -32,8 +112,8 @@ function SocialLinksCms({ siteData }) {
           name="linkedIn"
           placeholder="Enter LinkedIn URL"
           type="text"
-          value={data.socialLinks.linkedIn}
-          onChange={(e) => { data.socialLinks.linkedIn = e.target.value; setData({ ...data }); }}
+          value={data?.linkedIn}
+          onChange={(e) => { data.linkedIn = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -43,8 +123,8 @@ function SocialLinksCms({ siteData }) {
           name="CV"
           placeholder="Enter CV URL"
           type="text"
-          value={data.socialLinks.CV}
-          onChange={(e) => { data.socialLinks.CV = e.target.value; setData({ ...data }); }}
+          value={data?.CV}
+          onChange={(e) => { data.CV = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -54,8 +134,8 @@ function SocialLinksCms({ siteData }) {
           name="email"
           placeholder="Enter Email"
           type="text"
-          value={data.socialLinks.email}
-          onChange={(e) => { data.socialLinks.email = e.target.value; setData({ ...data }); }}
+          value={data?.email}
+          onChange={(e) => { data.email = e.target.value; setData({ ...data }); }}
         />
 
         <Input
@@ -65,28 +145,42 @@ function SocialLinksCms({ siteData }) {
           name="github"
           placeholder="Enter github"
           type="text"
-          value={data.socialLinks.github}
-          onChange={(e) => { data.socialLinks.github = e.target.value; setData({ ...data }); }}
+          value={data?.github}
+          onChange={(e) => { data.github = e.target.value; setData({ ...data }); }}
         />
       </div>
       <div className='grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-4 mb-4 w-full'>
-        {data.contacts.map((contact, index) => (
-            <Input
-                key={index}
-                isRequired
-                label={contact.label}
-                labelPlacement="outside"
-                name={`contact-${index}`}
-                placeholder="Enter Contact Link"
-                type="text"
-                value={contact.link}
-                onChange={(e) => { data.contacts[index].link = e.target.value; setData({ ...data }); }}
-            />
+        {contacts?.map((contact, index) => (
+          <Input
+            key={index}
+            isRequired
+            label={contact.label}
+            labelPlacement="outside"
+            name={`contact-${index}`}
+            placeholder="Enter Contact Link"
+            type="text"
+            value={contact.link}
+            onChange={(e) => {
+              const updated = [...contacts];
+              updated[index] = {
+                ...updated[index],
+                link: e.target.value,
+              };
+              setContacts(updated);
+            }}
+          />
         ))}
       </div>
-      <Button type="submit" variant="solid" color="primary">
-        Submit
-      </Button>
+      <div>
+        <Button type="submit" variant="solid" color="primary" className='mr-5'>
+          Submit
+        </Button>
+        <Button onPress={revertData} variant="solid" color="danger" className="mb-4">
+          Revert Site Data to Backup
+        </Button>
+      </div>
+      <p className={`text-green-400 text-2xl ${!showSuccess && 'hidden'}`}>Data Successfully updated</p>
+      <p className={`text-red-400 text-2xl ${!showFailed?.status && 'hidden'}`}>{showFailed?.message}</p>
     </Form>
   )
 }

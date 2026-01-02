@@ -1,16 +1,15 @@
+import { getData } from "@/lib/getData";
 import React from "react";
 
 export async function generateMetadata() {
-  const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
+  const siteData = getData("my_projects")
   return {
-    title: siteData.my_projects.metaTitle,
-    description: siteData.my_projects.metaDescription,
-    keywords: siteData.my_projects.metaKeywords,
+    title: siteData.metaTitle,
+    description: siteData.metaDescription,
+    keywords: siteData.metaKeywords,
     openGraph: {
-      title: siteData.my_projects.OGTitle,
-      description: siteData.my_projects.OGDescription,
+      title: siteData.OGTitle,
+      description: siteData.OGDescription,
       url: siteData.url,
       siteName: siteData.OGSiteName,
       images: [

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import HeroSection from "@/components/home/landingSection/HeroSection";
 import AboutMeSection from "@/components/home/aboutMeSection/AboutMeSection";
@@ -6,16 +7,20 @@ import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjects
 import Line from "@/components/utility/line/Line";
 import ContactMeSection from "@/components/utility/contactMeSection/ContactMeSection";
 import MyExperienceSection from "@/components/utility/myExperienceSection/MyExperienceSection";
+import { useSiteData } from "@/app/providers/SiteDataProvider";
+import Loader from "@/components/utility/loader/Loader";
 
 async function Home() {
-    const siteData = await fetch(process.env.NEXT_PUBLIC_SITE_DATA_URL, {cache: 'no-store'})
-    .then(res => res.json())
-    .catch(() => null);
+    const { siteData, loading } = useSiteData();
+
+    if (loading) {
+        return <Loader/>
+    }
 
     return (
         <>        
             <HeroSection siteData={siteData} />
-            <AboutMeSection />
+            <AboutMeSection siteData={siteData} />
             <MySkillsSection siteData={siteData} />
             <MyExperienceSection siteData={siteData} />
             <MyProjectsSection siteData={siteData} />

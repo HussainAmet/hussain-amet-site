@@ -1,13 +1,12 @@
 import React from 'react'
 import Heading from '../heading/Heading'
-import { headers } from 'next/headers';
 
-const MyExperienceSection = ({siteData}) => {
-    const device = headers().get('x-device-type') || 'mobile';
+const MyExperienceSection = ({ siteData }) => {
     return (
         <div>
-            <Heading text={device == 'desktop' ? "My Experience" : "Experience"} />
-            {siteData.experiences.map((experience, index) => (
+            <div className='md:hidden sm:hidden'><Heading text="My Experience" /></div>
+            <div className='xl:hidden lg:hidden'><Heading text="Experience" /></div>
+            {[...siteData.experiences].reverse().map((experience, index) => (
                 <div className={`
                     ${index == 0 ? 'xl:mt-10' : 'xl:mt-16'} xl:p-8
                     lg:py-9 lg:px-6
