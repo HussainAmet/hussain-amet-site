@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './style.css'
 
-function MenuIcon({clicked}) {
+function MenuIcon({open}) {
     return (
         <div>
             <label className="hamburger">
-                <input type="checkbox" checked={clicked} disabled />
+                <input type="checkbox" checked={open} disabled />
                 <svg viewBox="0 0 32 32">
                     <path
                         className="line line-top-bottom"
