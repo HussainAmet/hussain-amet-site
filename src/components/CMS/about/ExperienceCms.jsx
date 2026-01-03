@@ -18,6 +18,8 @@ function ExperienceCms() {
     const onSubmit = async (e) => {
         e.preventDefault();
 
+        const form = e.target;
+
         const newCompany = e.target.elements['new-company'].value;
         const newRole = e.target.elements['new-role'].value;
         const newDuration = e.target.elements['new-duration'].value;
@@ -56,6 +58,7 @@ function ExperienceCms() {
         fetchData();
 
         setShowSuccess(true);
+        form.reset();
         setTimeout(() => {
             setShowSuccess(false);
         }, 3000);

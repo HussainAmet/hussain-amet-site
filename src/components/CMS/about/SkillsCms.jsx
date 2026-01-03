@@ -18,32 +18,42 @@ function SkillsCms() {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        const newSkillFE = e.target.elements['new-skill-0'].value;
-        const newSkillBE = e.target.elements['new-skill-1'].value;
+        const form = e.target;
+
+        const newSkillFE = form.elements['new-skill-0'].value;
+        const newSkillBE = form.elements['new-skill-1'].value;
+
+        const updated = [...data];
 
         if (newSkillFE) {
-            data[0]?.skills.push(newSkillFE);
-        }
-        if (newSkillBE) {
-            data[1]?.skills.push(newSkillBE);
+            updated[0] = {
+                ...updated[0],
+                skills: [...updated[0].skills, newSkillFE],
+            };
         }
 
-        const res = await updateData("skills", { skills: data });
+        if (newSkillBE) {
+            updated[1] = {
+                ...updated[1],
+                skills: [...updated[1].skills, newSkillBE],
+            };
+        }
+
+        setData(updated);
+
+        const res = await updateData("skills", { skills: updated });
 
         if (res.status !== 200) {
             setShowFailed({ status: true, message: res.error });
-            setTimeout(() => {
-                setShowFailed({ status: false, message: "" });
-            }, 3000);
+            setTimeout(() => setShowFailed({ status: false, message: "" }), 3000);
             return;
         }
 
         fetchData();
-
         setShowSuccess(true);
-        setTimeout(() => {
-            setShowSuccess(false);
-        }, 3000);
+        form.reset();
+
+        setTimeout(() => setShowSuccess(false), 3000);
     };
 
     const revertData = async () => {
@@ -88,7 +98,16 @@ function SkillsCms() {
                                     placeholder="Enter Skill"
                                     type="text"
                                     value={item}
-                                    onChange={(e) => { data[index].skills[idx] = e.target.value; setData({ ...data }); }}
+                                    onChange={(e) => {
+                                        const updated = [...data];
+                                        const skills = [...updated[index].skills];
+                                        skills[idx] = e.target.value;
+                                        updated[index] = {
+                                            ...updated[index],
+                                            skills,
+                                        };
+                                        setData(updated);
+                                    }}
                                 />
                             ))}
                             <Input
