@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import Logo from "/public/images/header/LogoWithBG.jpeg";
 import Image from "next/image";
 import LinkComponent from "@/components/utility/link/Link";
 import { usePathname } from "next/navigation";
@@ -46,10 +45,10 @@ function MainHeader({ navList }) {
           <Image
             className="rounded-full"
             ref={imageRef}
-            src={Logo}
+            src="/images/header/LogoWithBG.jpeg"
             alt="logo"
-            width="44px"
-            height="44px"
+            width={44}
+            height={44}
             priority
           />
         </Link>

@@ -2,7 +2,6 @@ import "./globals.css";
 import { NavbarContainer, PageContainer } from '@/components/utility/container/Container';
 import Header from '@/components/utility/header/Header';
 import Footer from "@/components/utility/footer/Footer";
-import LoaderProvider from "@/components/utility/provider/LoaderProvider";
 import dynamic from "next/dynamic";
 import { getData } from "@/lib/getData";
 import MainContent from "@/components/MainContent";
@@ -51,18 +50,16 @@ export default async function RootLayout({ children }) {
         <link rel="icon" href="/images/header/LogoWithBGFav.ico" type="image/x-icon" />
       </head>
       <body className="leading-none text-[var(--white)] no-scrollbar">
-        <LoaderProvider>
-          <CustomCursor />
-          <NavbarContainer>
-            <Header siteData={siteData} />
-          </NavbarContainer>
-          <PageContainer>
-            <MainContent>
-              {children}
-            </MainContent>
-          </PageContainer>
-          <Footer />
-        </LoaderProvider>
+        <CustomCursor />
+        <NavbarContainer>
+          <Header siteData={siteData} />
+        </NavbarContainer>
+        <PageContainer>
+          <MainContent>
+            {children}
+          </MainContent>
+        </PageContainer>
+        <Footer />
       </body>
     </html>
   );
