@@ -147,7 +147,8 @@ function HeroSection({siteData}) {
           text-5xl md:mt-5 sm:mt-5
         '
       >
-        {role && <span dangerouslySetInnerHTML={{ __html: role }} />}
+        <p className='lg:hidden md:hidden sm:hidden'>{role && <span dangerouslySetInnerHTML={{ __html: role }} />}</p>
+        <p className='xl:hidden'>{siteData.about.role}</p>
       </h2>
     </div>
   )
