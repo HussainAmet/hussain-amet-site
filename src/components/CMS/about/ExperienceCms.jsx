@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Form, Input, Button, Textarea } from "@heroui/react";
+import { Form, Input, Textarea } from "@heroui/react";
 import { getData, updateData } from '@/lib/getData';
+import CmsButtons from '../CmsButtons';
 
 function ExperienceCms() {
     const [data, setData] = useState();
@@ -216,16 +217,7 @@ function ExperienceCms() {
                     />
                 </div>
             </div>
-            <div>
-                <Button type="submit" variant="solid" color="primary" className='mr-5'>
-                    Submit
-                </Button>
-                <Button onPress={revertData} variant="solid" color="danger" className="mb-4">
-                    Revert Site Data to Backup
-                </Button>
-            </div>
-            <p className={`text-green-400 text-2xl ${!showSuccess && 'hidden'}`}>Data Successfully updated</p>
-            <p className={`text-red-400 text-2xl ${!showFailed?.status && 'hidden'}`}>{showFailed?.message}</p>
+            <CmsButtons revertData={revertData} showFailed={showFailed} showSuccess={showSuccess} />
         </Form>
     )
 }
