@@ -1,9 +1,8 @@
 import { getData } from "@/lib/getData";
 
 export async function generateMetadata() {
-
   const siteData = await getData("about");
-  
+
   return {
     title: siteData.metaTitle,
     description: siteData.metaDescription,

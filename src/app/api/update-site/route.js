@@ -1,8 +1,9 @@
 import { db } from "@/firebase/firebase";
 import { NextResponse } from "next/server";
 
-const siteDataFileName = process.env.NEXT_PUBLIC_SITE_DATA_FILE_NAME
-const backupSiteDataFileName = process.env.NEXT_PUBLIC_BACKUP_SITE_DATA_FILE_NAME
+const siteDataFileName = process.env.NEXT_PUBLIC_SITE_DATA_FILE_NAME;
+const backupSiteDataFileName =
+  process.env.NEXT_PUBLIC_BACKUP_SITE_DATA_FILE_NAME;
 
 export async function POST(req) {
   try {
@@ -11,7 +12,7 @@ export async function POST(req) {
     if (!name || !data) {
       return NextResponse.json(
         { error: "name and data are required", status: 400 },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -30,7 +31,7 @@ export async function POST(req) {
     if (!allowed.includes(name)) {
       return NextResponse.json(
         { error: "Invalid document name", status: 400 },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -55,7 +56,10 @@ export async function POST(req) {
     });
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: err.message, status: 500 }, { status: 500 });
+    return NextResponse.json(
+      { error: err.message, status: 500 },
+      { status: 500 },
+    );
   }
 }
 
@@ -67,7 +71,7 @@ export async function GET(req) {
     if (!name) {
       return NextResponse.json(
         { error: "name query param required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -86,7 +90,7 @@ export async function GET(req) {
     if (!allowed.includes(name)) {
       return NextResponse.json(
         { error: "Invalid document name" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 

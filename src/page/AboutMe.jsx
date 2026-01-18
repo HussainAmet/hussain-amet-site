@@ -1,21 +1,20 @@
-"use client"
-import HeroSection from '@/components/About/landingSection/HeroSection'
-import MySkillsSection from "@/components/utility/mySkillsSection/MySkillsSection";
-import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjectsSection";
-import Line from "@/components/utility/line/Line";
+"use client";
+import { useSiteData } from "@/app/providers/SiteDataProvider";
+import InfoSection from "@/components/About/infoSection/InfoSection";
+import HeroSection from "@/components/About/landingSection/HeroSection";
+import MyEduationSection from "@/components/About/myEducationSection/MyEduationSection";
 import ContactMeSection from "@/components/utility/contactMeSection/ContactMeSection";
-import React from 'react'
-import MyEduationSection from '@/components/About/myEducationSection/MyEduationSection';
-import InfoSection from '@/components/About/infoSection/InfoSection';
-import MyExperienceSection from '@/components/utility/myExperienceSection/MyExperienceSection';
-import { useSiteData } from '@/app/providers/SiteDataProvider';
-import Loader from '@/components/utility/loader/Loader';
+import Line from "@/components/utility/line/Line";
+import Loader from "@/components/utility/loader/Loader";
+import MyExperienceSection from "@/components/utility/myExperienceSection/MyExperienceSection";
+import MyProjectsSection from "@/components/utility/myProjectsSection/MyProjectsSection";
+import MySkillsSection from "@/components/utility/mySkillsSection/MySkillsSection";
 
-async function AboutMe() {
+function AboutMe() {
   const { siteData, loading } = useSiteData();
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (
@@ -26,10 +25,10 @@ async function AboutMe() {
       <MyExperienceSection siteData={siteData} />
       <MyProjectsSection siteData={siteData} />
       <MyEduationSection siteData={siteData} />
-      <Line direction='left' />
+      <Line direction="left" />
       <ContactMeSection siteData={siteData} />
     </>
-  )
+  );
 }
 
-export default AboutMe
+export default AboutMe;

@@ -1,22 +1,21 @@
 "use client";
 import Heading from "@/components/utility/heading/Heading";
-import Image from "next/image";
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LearnMore from "@/components/utility/learnMore/LearnMore";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
+function MyProjectsSection({ siteData, allowed = true, renderList = 2 }) {
   const leftCard = useRef([]);
   const rightCard = useRef([]);
-  
+
   useGSAP(() => {
     const mm = gsap.matchMedia();
-    
 
     mm.add("(min-width: 992px)", () => {
       Object.keys(siteData.projects).forEach((_, index) => {
@@ -72,13 +71,14 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
       <div
         className={`
         grid
-        ${allowed ? 'xl:mt-10 mt-8' : ''} xl:grid-cols-2 xl:grid-row-2 xl:gap-x-16 xl:gap-y-20
+        ${allowed ? "xl:mt-10 mt-8" : ""} xl:grid-cols-2 xl:grid-row-2 xl:gap-x-16 xl:gap-y-20
         gap-16 grid-cols-1
       `}
       >
-        {Object.keys(siteData.projects).map((card, index) => (
-          renderList === 2 ?
-            siteData.projects[card]?.title === "Funds Website" || siteData.projects[card]?.title === "Simon Game" ?
+        {Object.keys(siteData.projects).map((card, index) =>
+          renderList === 2 ? (
+            siteData.projects[card]?.title === "Funds Website" ||
+            siteData.projects[card]?.title === "Simon Game" ? (
               <Link
                 href={siteData.projects[card]?.href}
                 ref={getCardRef(index)}
@@ -89,7 +89,7 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                   src={siteData.projects[card]?.image}
                   alt="image"
                   className="
-                    border-[2px] border-[var(--light-white)] rounded-md w-full h-auto
+                    border-[2px] border-(--light-white) rounded-md w-full h-auto
                     xl:mb-6
                     mb-5
                   "
@@ -109,7 +109,7 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                   </p>
                   <p
                     className="
-                      font-Inter font-medium italic text-[var(--accent)]
+                       font-medium italic text-[var(--accent)]
                       xl:text-lg
                       md:text-base
                       text-sm
@@ -119,8 +119,8 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                   </p>
                 </div>
               </Link>
-            : null
-          :
+            ) : null
+          ) : (
             <Link
               href={siteData.projects[card]?.href}
               ref={getCardRef(index)}
@@ -131,7 +131,7 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                 src={siteData.projects[card]?.image}
                 alt="image"
                 className="
-                  border-[2px] border-[var(--light-white)] rounded-md w-full h-auto
+                  border-[2px] border-(--light-white) rounded-md w-full h-auto
                   xl:mb-6
                   mb-5
                 "
@@ -151,7 +151,7 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                 </p>
                 <p
                   className="
-                    font-Inter font-medium italic text-[var(--accent)]
+                     font-medium italic text-[var(--accent)]
                     xl:text-lg
                     md:text-base
                     text-sm
@@ -161,13 +161,14 @@ function MyProjectsSection({siteData, allowed = true, renderList = 2}) {
                 </p>
               </div>
             </Link>
-        ))}
+          ),
+        )}
       </div>
-      {allowed && 
+      {allowed && (
         <div className="mt-11 text-center">
           <LearnMore text="View More" href="/my-projects" />
         </div>
-      }
+      )}
     </div>
   );
 }

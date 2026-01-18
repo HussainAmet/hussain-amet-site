@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useRef, useState } from 'react'
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
 
-function MyProjectsInListView({siteData}) {
-  const [hoveredProject, setHoveredProject] = useState(-1)
+function MyProjectsInListView({ siteData }) {
+  const [hoveredProject, setHoveredProject] = useState(-1);
   const projectNameRef = useRef(null);
   const project1Refs = useRef([]);
   const project2Refs = useRef([]);
@@ -16,7 +16,7 @@ function MyProjectsInListView({siteData}) {
       x: -90,
       opacity: 0,
       duration: 1.5,
-      ease: "power3"
+      ease: "power3",
     });
   }, []);
 
@@ -71,15 +71,25 @@ function MyProjectsInListView({siteData}) {
   return (
     <div
       ref={projectNameRef}
-      className='
+      className="
         flex flex-col
         xl:gap-[88px]
         lg:gap-[64px]
         gap-[44px]
-      '
+      "
     >
       {Object.keys(siteData.projects).map((card, index) => (
-        <div key={index} onMouseEnter={() => {setHoveredProject(index); handleMouseEnter(index)}} onMouseLeave={() => {setHoveredProject(-1); handleMouseLeave(index)}}>
+        <div
+          key={index}
+          onMouseEnter={() => {
+            setHoveredProject(index);
+            handleMouseEnter(index);
+          }}
+          onMouseLeave={() => {
+            setHoveredProject(-1);
+            handleMouseLeave(index);
+          }}
+        >
           <Link
             href={siteData.projects[card]?.href}
             key={index}
@@ -87,7 +97,7 @@ function MyProjectsInListView({siteData}) {
               project linkHover flex justify-between relative
             "
           >
-            <div ref={(el) => (project1Refs.current[index] = el)} >
+            <div ref={(el) => (project1Refs.current[index] = el)}>
               <p
                 className={`
                   font-aptly-medium-italic mb-3
@@ -100,7 +110,10 @@ function MyProjectsInListView({siteData}) {
                 {siteData.projects[card]?.title}
               </p>
             </div>
-            <div ref={(el) => (project2Refs.current[index] = el)} className='absolute' >
+            <div
+              ref={(el) => (project2Refs.current[index] = el)}
+              className="absolute"
+            >
               <p
                 className={`
                   font-aptly-medium-italic mb-3
@@ -119,7 +132,7 @@ function MyProjectsInListView({siteData}) {
               alt="image"
               className={`
 
-                border-[2px] border-[var(--light-white)] rounded-md w-[30vw] h-auto absolute right-[0] -top-[6vw] z-30 opacity-0 scale-90
+                border-[2px] border-(--light-white) rounded-md w-[30vw] h-auto absolute right-[0] -top-[6vw] z-30 opacity-0 scale-90
               `}
               width={600}
               height={600}
@@ -128,7 +141,7 @@ function MyProjectsInListView({siteData}) {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default MyProjectsInListView
+export default MyProjectsInListView;

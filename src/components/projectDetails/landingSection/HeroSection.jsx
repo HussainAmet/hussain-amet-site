@@ -1,126 +1,123 @@
-'use client'
-import LinkComponent from '@/components/utility/link/Link';
-import { useParams } from 'next/navigation';
-import React, { useRef } from 'react';
-import gsap from "gsap";
+"use client";
+import LinkComponent from "@/components/utility/link/Link";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useParams } from "next/navigation";
+import { useRef } from "react";
 
-function HeroSection({siteData}) {
-    const { project } = useParams();
-    const projectData = siteData.projects[project];
+function HeroSection({ siteData }) {
+  const { project } = useParams();
+  const projectData = siteData.projects[project];
 
-    const landingRef = useRef(null);
+  const landingRef = useRef(null);
 
-    useGSAP(() => {
-        gsap.from(landingRef.current, {
-            x: -90,
-            opacity: 0,
-            duration: 1.5,
-            ease: "power3"
-        });
-    }, []);
+  useGSAP(() => {
+    gsap.from(landingRef.current, {
+      x: -90,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3",
+    });
+  }, []);
 
   return (
     <div
       ref={landingRef}
-      className='
+      className="
         flex flex-col gap-10
         md:gap-5 sm:gap-5
-      '
+      "
     >
       <div
-        className='
+        className="
           flex flex-col gap-5
-        '
+        "
       >
         <h1
-          className='
+          className="
             font-aptly-medium-italic
             xl:text-9xl
             lg:text-8xl
             text-5xl
-          '
+          "
         >
           {projectData.title}
         </h1>
         <h2
-          className='
+          className="
             font-aptly-medium-italic
             xl:text-4xl
             lg:text-3xl
             text-xl
-          '
+          "
         >
           {projectData.tagLine}
         </h2>
         <p
-          className='
-            font-Inter text-[var(--light-white)]
+          className="
+             text-[var(--light-white)]
             xl:text- xl:w-[56vw]
             lg:text-base
             text-sm w-full
-          '
+          "
         >
           {projectData.overview}
         </p>
       </div>
       <div
-        className='
+        className="
           flex gap-4 flex-wrap xl:w-[70vw]
-        '
+        "
       >
-        {
-          projectData.skill.split(", ").map((skill, index) =>
-            <div
-              key={index}
-              className='
-                font-Inter px-6 py-2 border w-fit rounded-full
+        {projectData.skill.split(", ").map((skill, index) => (
+          <div
+            key={index}
+            className="
+                 px-6 py-2 border w-fit rounded-full
                 xl:text-lg
                 lg:text-base
                 text-sm
 
-              '
-            >
-              <span>{skill}</span>
-            </div>
-          )
-        }
+              "
+          >
+            <span>{skill}</span>
+          </div>
+        ))}
       </div>
       <div
-        className='
+        className="
           flex
           xl:gap-10 lg:gap-10
           md:flex-col
           sm:flex-col
           gap-5
-        '
+        "
       >
-        {
-          projectData.siteLink &&
-            <LinkComponent
-              text="View Site"
-              href={projectData.siteLink}
-              isActive={false}
-              className={`bg-[var(--accent)] text-[var(--white)] xl:after:bg-[var(--accent)] xl:hover:text-[var(--white)] border-[var(--accent)]`}
-              shadowColor='var(--accent)'
-              imageAfter="/icons/common/Link_white.svg"
-              imageBefore="/icons/common/Link_white.svg"
-              target="_blank"
-            />
-        }
+        {projectData.siteLink && (
+          <LinkComponent
+            text="View Site"
+            href={projectData.siteLink}
+            isActive={false}
+            className={`bg-[var(--accent)] text-[var(--white)] xl:after:bg-[var(--accent)] xl:hover:text-[var(--white)] border-(--accent)`}
+            shadowColor="var(--accent)"
+            imageAfter="/icons/common/Link_white.svg"
+            imageBefore="/icons/common/Link_white.svg"
+            target="_blank"
+          />
+        )}
         <LinkComponent
           text="Code"
           href={projectData.codeLink}
           isActive={false}
-          className={`bg-[var(--black)] text-[var(--accent)] xl:after:bg-[var(--black)] xl:hover:text-[var(--accent)] border-[var(--accent)]`}
-          shadowColor='var(--accent)'
+          className={`bg-[var(--black)] text-[var(--accent)] xl:after:bg-[var(--black)] xl:hover:text-[var(--accent)] border-(--accent)`}
+          shadowColor="var(--accent)"
           imageAfter="/icons/common/Github.svg"
           imageBefore="/icons/common/Github.svg"
           target="_blank"
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default HeroSection
+export default HeroSection;

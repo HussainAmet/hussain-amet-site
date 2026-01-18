@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import MenuIcon from "./MenuIcon";
-import ArrowWhite from "/public/icons/common/arrow_white.svg";
-import ArrowBlack from "/public/icons/common/arrow_black.svg";
-import Link from "next/link";
 import gsap from "gsap";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import MenuIcon from "./MenuIcon";
+import ArrowBlack from "/public/icons/common/arrow_black.svg";
+import ArrowWhite from "/public/icons/common/arrow_white.svg";
 
 function MenuDrawer({ navList, url }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +40,7 @@ function MenuDrawer({ navList, url }) {
           opacity: 1,
           duration: 0.5,
           ease: "power1.inOut",
-        }
+        },
       );
     }
   }, [isVisible, isOpen]);

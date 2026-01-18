@@ -1,11 +1,11 @@
 "use client";
-import React, { useRef } from "react";
-import Image from "next/image";
 import LinkComponent from "@/components/utility/link/Link";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import gsap from "gsap";
 import MenuDrawer from "@/components/utility/menu/MenuDrawer";
+import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRef } from "react";
 
 function MainHeader({ navList }) {
   const url = usePathname();
@@ -35,7 +35,7 @@ function MainHeader({ navList }) {
         onMouseEnter={animate}
         onMouseLeave={removeAnimation}
         className="
-            p-[5px] border-[var(--white)] border-[3px] rounded-full bg-[var(--black)]
+            p-[5px] border-(--white) border-[3px] rounded-full bg-[var(--black)]
             xl:w-[60px] xl:h-[60px]
             lg:w-[48px] lg:h-[48px]
             w-[44px] h-[44px]
@@ -59,13 +59,13 @@ function MainHeader({ navList }) {
             <LinkComponent
               key={link.text}
               text={link.text}
-              href={`${index === (navList.length - 1) ? "" : "/"}` + link.href}
+              href={`${index === navList.length - 1 ? "" : "/"}` + link.href}
               isActive={splitUrl == link.href}
               className={`${
                 splitUrl == link.href
                   ? "bg-[var(--white)] text-[var(--black)]"
                   : "bg-[var(--black)] text-[var(--white)] xl:after:bg-[var(--white)] xl:hover:text-[var(--black)]"
-              } border-[var(--white)]`}
+              } border-(--white)`}
               shadowColor="var(--white)"
               imageAfter={link.imageAfter || ""}
               imageBefore={link.imageBefore || ""}
@@ -83,7 +83,7 @@ function MainHeader({ navList }) {
             url == `${navList[3].href}`
               ? "bg-[var(--white)] text-[var(--black)]"
               : "bg-[var(--black)] text-[var(--white)] xl:after:bg-[var(--white)] xl:hover:text-[var(--black)]"
-          } border-[var(--white)]`}
+          } border-(--white)`}
           shadowColor="var(--white)"
           imageAfter={navList[3].imageAfter ? navList[3].imageAfter : ""}
           imageBefore={navList[3].imageBefore ? navList[3].imageBefore : ""}

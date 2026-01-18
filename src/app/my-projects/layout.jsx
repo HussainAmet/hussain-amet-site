@@ -1,8 +1,7 @@
 import { getData } from "@/lib/getData";
-import React from "react";
 
 export async function generateMetadata() {
-  const siteData = getData("my_projects")
+  const siteData = await getData("my_projects");
   return {
     title: siteData.metaTitle,
     description: siteData.metaDescription,

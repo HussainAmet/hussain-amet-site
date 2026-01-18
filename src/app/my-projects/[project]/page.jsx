@@ -1,13 +1,7 @@
-import { PageContainer } from '@/components/utility/container/Container'
-import ProjectDetail from '@/page/ProjectDetail'
-import React from 'react'
+import ProjectDetail from "@/page/ProjectDetail";
 
 function ProjectDetailPage() {
-  return (
-    // <PageContainer>
-        <ProjectDetail />
-    // </PageContainer>
-  )
+  return <ProjectDetail />;
 }
 
-export default ProjectDetailPage
+export default ProjectDetailPage;

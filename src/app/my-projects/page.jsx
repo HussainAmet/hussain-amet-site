@@ -1,12 +1,7 @@
-import { PageContainer } from '@/components/utility/container/Container'
-import MyProjects from '@/page/MyProjects';
+import MyProjects from "@/page/MyProjects";
 
 function MyProjectsPage() {
-  return (
-    // <PageContainer>
-      <MyProjects/>
-    // </PageContainer>
-  )
+  return <MyProjects />;
 }
 
 export default MyProjectsPage;

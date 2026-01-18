@@ -1,10 +1,15 @@
-import "./globals.css";
-import { NavbarContainer, PageContainer } from '@/components/utility/container/Container';
-import Header from '@/components/utility/header/Header';
-import Footer from "@/components/utility/footer/Footer";
-import dynamic from "next/dynamic";
-import { getData } from "@/lib/getData";
 import MainContent from "@/components/MainContent";
+import {
+  NavbarContainer,
+  PageContainer,
+} from "@/components/utility/container/Container";
+import Footer from "@/components/utility/footer/Footer";
+import Header from "@/components/utility/header/Header";
+import { getData } from "@/lib/getData";
+import dynamic from "next/dynamic";
+import { Inter } from "next/font/google";
+import PropTypes from "prop-types";
+import "./globals.css";
 
 export async function generateMetadata() {
   const siteData = await getData("home");
@@ -30,24 +35,42 @@ export async function generateMetadata() {
         },
       ],
       type: "website",
-    }
+    },
   };
 }
 
-const CustomCursor = dynamic(() => import("@/components/utility/customCursor/CustomCursor"), {
-  ssr: false
+const CustomCursor = dynamic(
+  () => import("@/components/utility/customCursor/CustomCursor"),
+  {
+    ssr: false,
+  },
+);
+
+const inter = Inter({
+  subsets: ["latin"],
 });
+
+RootLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default async function RootLayout({ children }) {
   const siteData = await getData("socialLinks");
   return (
-    <html lang="en" className="scroll-smooth xl:scroll-pt-24 scroll-pt-20">
+    <html
+      lang="en"
+      className={`scroll-smooth xl:scroll-pt-24 scroll-pt-20 ${inter.className}`}
+    >
       <head>
         <meta
           name="google-site-verification"
           content="dOTMamZFyXCHILsW_4b_liGAGGEVNWcTFDbKQLxxI6M"
         />
-        <link rel="icon" href="/images/header/LogoWithBGFav.ico" type="image/x-icon" />
+        <link
+          rel="icon"
+          href="/images/header/LogoWithBGFav.ico"
+          type="image/x-icon"
+        />
       </head>
       <body className="leading-none text-[var(--white)] no-scrollbar">
         <CustomCursor />
@@ -55,9 +78,7 @@ export default async function RootLayout({ children }) {
           <Header siteData={siteData} />
         </NavbarContainer>
         <PageContainer>
-          <MainContent>
-            {children}
-          </MainContent>
+          <MainContent>{children}</MainContent>
         </PageContainer>
         <Footer />
       </body>

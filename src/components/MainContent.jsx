@@ -1,12 +1,12 @@
-import { SiteDataProvider } from '@/app/providers/SiteDataProvider'
-import React from 'react'
+import ReduxProvider from "@/app/providers/ReduxProvider";
+import { SiteDataProvider } from "@/app/providers/SiteDataProvider";
 
-const MainContent = ({children}) => {
+const MainContent = ({ children }) => {
   return (
-    <SiteDataProvider>
-     {children} 
-    </SiteDataProvider>
-  )
-}
+    <ReduxProvider>
+      <SiteDataProvider>{children}</SiteDataProvider>
+    </ReduxProvider>
+  );
+};
 
-export default MainContent
+export default MainContent;

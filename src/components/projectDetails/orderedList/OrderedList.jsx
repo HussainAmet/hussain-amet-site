@@ -1,8 +1,4 @@
-import React from 'react'
-
 function OrderedList({ listTitle, list }) {
-  console.log(list.length);
-  
   return (
     <div>
       <ul
@@ -13,31 +9,30 @@ function OrderedList({ listTitle, list }) {
         "
       >
         <li
-          className='
+          className="
             list-disc
-          '
+          "
         >
           {listTitle}
         </li>
       </ul>
       <ol
         className="
-          font-Inter font-normal list-decimal flex flex-col gap-3
+           font-normal list-decimal flex flex-col gap-3
           xl:text-2xl xl:pl-16
           lg:text-xl lg:pl-16
           text-base pl-9
         "
       >
-        {
-          list.map((item, index) => (
-            <li key={index}>
-              <span className="font-semibold">{item.title}</span>{item.description}
-            </li>
-          ))
-        }
+        {list.map((item, index) => (
+          <li key={index}>
+            <span className="font-semibold">{item.title}</span>
+            {item.description}
+          </li>
+        ))}
       </ol>
     </div>
-  )
+  );
 }
 
-export default OrderedList
+export default OrderedList;
