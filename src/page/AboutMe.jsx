@@ -13,7 +13,7 @@ import MySkillsSection from "@/components/utility/mySkillsSection/MySkillsSectio
 function AboutMe() {
   const { siteData, loading } = useSiteData();
 
-  if (loading) {
+  if (loading || !siteData.isLoaded) {
     return <Loader />;
   }
 

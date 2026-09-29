@@ -9,7 +9,7 @@ import Loader from "@/components/utility/loader/Loader";
 function ProjectDetail() {
   const { siteData, loading } = useSiteData();
 
-  if (loading) {
+  if (loading || !siteData.isLoaded) {
     return <Loader />;
   }
 
